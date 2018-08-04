@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title>超管管理页面</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top ">
+    <a class="navbar-brand" href="#">超级后台管理</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/su/manage">主页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/su/customer">人员</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+
+            <div class="list-group" id="left-group">
+                <button type="button" disabled class="list-group-item list-group-item-action  ">
+                    侧边导航栏
+                </button>
+                <button type="button" @click="leftnavchange(1)"
+                        v-bind:class="['list-group-item','list-group-item-action',index==1?'active':'']">查看地震
+                </button>
+                <button type="button" @click="leftnavchange(2)"
+                        v-bind:class="['list-group-item','list-group-item-action',index==2?'active':'']">添加地震
+                </button>
+                <button type="button" @click="leftnavchange(3)"
+                        v-bind:class="['list-group-item','list-group-item-action',index==3?'active':'']">建筑物结构类型
+                </button>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+
+            <div v-if="leftgroup.index==1" id="viewearthquake">
+                <div>
+                    <a href="javascript:void(0);" @click="view">点击查看</a>
+                </div>
+                <hr>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <div v-if="earthquakes.length>0">
+                            <li class="list-group-item" v-for="(item, index) in earthquakes">
+                                <div class="row">
+                                    <div class="col">
+                                        <a target="_blank"
+                                           v-bind:href="['/admin/manage?eid='+item.id]">{{item.name}}</a>
+                                    </div>
+                                    <div class="col"><a href="javascript:void(0)"
+                                                        @click="viewaccount(item.id)">查看管理账号</a></div>
+                                    <div class="col"><a href="javascript:void(0)"
+                                                        @click="addaccount(item.id)">添加管理账号</a></div>
+
+                                    <div class="col"><a href="javascript:void(0)"
+                                                        @click="modifyaccount(index)">修改</a></div>
+                                </div>
+                            </li>
+                        </div>
+                        <li v-else class="list-group-item">暂无</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div v-if="leftgroup.index==2" id="addearthquake">
+                <div>
+                    <div class="form-group row">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.name" class="form-control" id="colFormLabel"
+                                   placeholder="名称">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="colFormLabel1" class="col-sm-2 col-form-label">时间</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.dateTime" class="form-control" id="colFormLabel1"
+                                   placeholder="时间">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="colFormLabel2" class="col-sm-2 col-form-label">编号</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.numbering" class="form-control" id="colFormLabel2"
+                                   placeholder="编号">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="colFormLabel33" class="col-sm-2 col-form-label">震级</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.level" class="form-control" id="colFormLabel33"
+                                   placeholder="震级">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="colFormLabel3" class="col-sm-2 col-form-label">经度</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.lng" class="form-control" id="colFormLabel3"
+                                   placeholder="经度">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="colFormLabel4" class="col-sm-2 col-form-label">纬度</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.lat" class="form-control" id="colFormLabel4"
+                                   placeholder="纬度">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="colFormLabel5" class="col-sm-2 col-form-label">深度</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.deep" class="form-control" id="colFormLabel5"
+                                   placeholder="深度">
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="text-align: center">
+                        <button class="btn btn-primary" @click="saveearthquake">保存</button>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="leftgroup.index==3" id="structType">
+                <div>
+                    <div>
+                        <a href="javascript:void(0);" @click="viewTypes">点击查看</a>
+                    </div>
+                    <hr>
+                    <div>
+                        <ul class="list-group list-group-flush">
+                            <div v-if="sTypes.length>0">
+                                <li class="list-group-item" v-for="(item, index) in sTypes">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a target="_blank"
+                                               v-bind:href="['/su/StructureParts?tid='+item.id]">{{item.typeName}}</a>
+                                        </div>
+
+                                        <div class="col"><a href="javascript:void(0)"
+                                                            @click="modify(index)">修改</a></div>
+                                    </div>
+                                </li>
+                            </div>
+                            <li v-else class="list-group-item">暂无</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-2">
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addaccountmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addaccountmodalTitle">添加管理账号&nbsp;&nbsp;
+                    <a href="javascript:void(0)" style="text-decoration-line: underline"
+                       @click="autoaddaccount">点击自动生成</a></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">账号</label>
+                        <input type="text" v-model="acc.loginAccount" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">密码</label>
+                        <input type="text" class="form-control" v-model="acc.loginPassword" id="message-text">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" @click="addnew">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="viewaccmodal" tabindex="-1" role="dialog" aria-labelledby="viewaccmodalTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewaccmodalTitle">账号列表</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">账号</th>
+                        <th scope="col">密码</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(item,index) in acs">
+                        <th scope="row">{{index+1}}</th>
+                        <td>{{item.loginAccount}}</td>
+                        <td>{{item.loginPassword}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modifymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">修改地震信息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel" class="col-sm-2 col-form-label">名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.name" class="form-control" id="mmcolFormLabel"
+                                   placeholder="名称">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel1" class="col-sm-2 col-form-label">时间</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.dateTime" class="form-control" id="mmcolFormLabel1"
+                                   placeholder="时间">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel2" class="col-sm-2 col-form-label">编号</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.numbering" class="form-control" id="mmcolFormLabel2"
+                                   placeholder="编号">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel33" class="col-sm-2 col-form-label">震级</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.level" class="form-control" id="mmcolFormLabel33"
+                                   placeholder="震级">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel3" class="col-sm-2 col-form-label">经度</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.lng" class="form-control" id="mmcolFormLabel3"
+                                   placeholder="经度">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel4" class="col-sm-2 col-form-label">纬度</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.lat" class="form-control" id="mmcolFormLabel4"
+                                   placeholder="纬度">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="mmcolFormLabel5" class="col-sm-2 col-form-label">深度</label>
+                        <div class="col-sm-10">
+                            <input type="text" v-model="eq.deep" class="form-control" id="mmcolFormLabel5"
+                                   placeholder="深度">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" @click="savechange">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var SUCCESSMSG = "操作成功！";
+    var FAILMSG = "操作失败，请稍后重试！";
+
+
+    var modifymodal = new Vue({
+        el: "#modifymodal",
+        data: {
+            eq: {}
+        },
+        methods: {
+            savechange: function () {
+                if (objHasNull(this.eq)) {
+                    alert("存在未填写项");
+                    return;
+                }
+                console.log(this.eq);
+                axios({
+                    method: "post",
+                    url: "/earthquake/su/modify",
+                    data: this.eq
+                })
+                    .then(function (response) {
+                        console.log(response.data);
+                        $("#modifymodal").modal('hide');
+                        alert("修改成功");
+
+                    })
+                    .catch(function (response) {
+
+                    });
+            }
+        }
+    });
+
+    var leftgroup = new Vue({
+        el: "#left-group",
+        data: {
+            action: false,
+            index: 1
+        },
+        methods: {
+            leftnavchange: function (e) {
+                leftgroup.index = e;
+            }
+        }
+    });
+
+    var structType = new Vue({
+        el: "#structType",
+        data: {
+            sTypes: []
+        },
+        methods: {
+            viewTypes: function () {
+                axios.get('/StructureType/findAll')
+                    .then(function (response) {
+                        console.log(response.data);
+                        structType.sTypes = response.data.reverse();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            modify: function (e) {
+                console.log(e)
+            }
+        }
+    });
+    var addearthquake = new Vue({
+        el: "#addearthquake",
+        data: {
+            eq: {
+                uuid: "",
+                numbering: "",
+                name: "",
+                dateTime: "",
+                deep: "",
+                level: "",
+                lat: "",
+                lng: ""
+            }
+        },
+        methods: {
+            saveearthquake: function () {
+                this.eq.uuid = UUID();
+                if (objHasNull(this.eq)) {
+                    alert("存在未填写项");
+                    return;
+                }
+
+                console.log(this.eq);
+                axios({
+                    method: "post",
+                    url: "/earthquake/su/add",
+                    data: this.eq
+                })
+                    .then(function (response) {
+                        console.log(response);
+                        alert("添加成功");
+                        addearthquake.eq = {
+                            uuid: "",
+                            numbering: "",
+                            name: "",
+                            dateTime: "",
+                            deep: "",
+                            level: "",
+                            lat: "",
+                            lng: ""
+                        }
+                    })
+                    .catch(function (response) {
+
+                    });
+            }
+        }
+    });
+
+    var viewearthquake = new Vue({
+        el: "#viewearthquake",
+        data: {
+            earthquakes: []
+        },
+        methods: {
+            view: function () {
+                axios.get('/earthquake/findall')
+                    .then(function (response) {
+                        console.log(response.data);
+                        viewearthquake.earthquakes = response.data.reverse();
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            viewdetail: function (e) {
+                console.log(e);
+                let eq = viewearthquake.earthquakes[e];
+                sessionStorage.setItem("earthquake", JSON.stringify(eq));
+                window.location.href = "/admin/manage"
+            },
+            modifyaccount: function (e) {
+                $("#modifymodal").modal('show');
+                modifymodal.eq = this.earthquakes[e];
+            },
+            viewaccount: function (e) {
+                console.log(e);
+                axios.get('/normaladmin/su/findbyeid?eid=' + e)
+                    .then(function (response) {
+                        console.log(response.data);
+                        viewaccmodal.acs = response.data;
+                        $("#viewaccmodal").modal('show')
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            addaccount: function (e) {
+                addaccountmodal.acc.earthquakeId = e;
+                $('#addaccountmodal').modal('show')
+            }
+        }
+    });
+
+    var others = new Vue({
+        el: "#others"
+    });
+
+    var viewaccmodal = new Vue({
+        el: "#viewaccmodal",
+        data: {
+            acs: []
+        }
+    });
+    var addaccountmodal = new Vue({
+        el: "#addaccountmodal",
+        data: {
+            acc: {
+                loginAccount: "",
+                loginPassword: "",
+                earthquakeId: ""
+            }
+        },
+        methods: {
+            autoaddaccount: function () {
+                addaccountmodal.acc.loginAccount = UUID();
+                addaccountmodal.acc.loginPassword = UUID();
+            },
+            addnew: function () {
+                let acc = addaccountmodal.acc;
+                if (objHasNull(acc)) {
+                    alert("存在未填写项");
+                    return;
+                }
+                acc.timestamp = new Date().getTime();
+                axios({
+                    method: "post",
+                    url: "/normaladmin/su/add",
+                    data: acc
+                })
+                    .then(function (response) {
+                        console.log(response);
+                        alert("添加成功");
+                        addaccountmodal.acc = {
+                            loginAccount: "",
+                            loginPassword: "",
+                            earthquakeId: ""
+                        }
+                        $('#addaccountmodal').modal('hide')
+                    })
+                    .catch(function (response) {
+
+                    });
+            }
+        }
+    })
+</script>
+</body>
+</html>

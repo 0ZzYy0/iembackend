@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title id="title">{{customer.name}}|个人主页</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top ">
+    <a class="navbar-brand" href="#" th:text="|${customer.name}个人主页|"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">个人主页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">其他</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                   href="#list-home" role="tab" aria-controls="home">基本信息</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                   href="#list-profile" role="tab" aria-controls="profile">地震管理</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                   href="#list-messages" role="tab" aria-controls="messages">共享信息</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div id="customerinfo">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">姓名：{{customer.name}}</li>
+                            <li class="list-group-item">专业：{{customer.discipline}}</li>
+                            <li class="list-group-item">职称：{{customer.profTitle}}</li>
+                            <li class="list-group-item">单位：{{customer.department}}</li>
+                            <li class="list-group-item">地址：{{customer.address}}</li>
+                            <li class="list-group-item">电话：{{customer.phone}}</li>
+                            <li class="list-group-item">邮箱：{{customer.email}}</li>
+                            <li class="list-group-item">邮编：{{customer.zipCode}}</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    <div id="viewearthquake">
+                        <div>
+                            <a href="javascript:void(0);" @click="view">点击查看</a>
+                        </div>
+                        <hr>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <div v-if="earthquakes.length>0">
+                                    <li class="list-group-item" v-for="(item, index) in earthquakes">
+                                        <div class="row">
+                                            <div class="col">
+                                                <a target="_blank"
+                                                   v-bind:href="['/customer/data?eid='+item.id+'&cid='+customer.id]">{{item.name}}</a>
+                                            </div>
+                                            <div class="col">
+                                                <a target="_blank"
+                                                   v-bind:href="['/customer/data?eid='+item.id+'&cid='+customer.id]">数据管理</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
+                                <li v-else class="list-group-item">暂无</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    3...
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    4...
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab-right" role="tablist">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    var customer = [[${customer}]];
+    sessionStorage.setItem("customer", JSON.stringify(customer));
+    console.log(customer);
+    var customerinfo = new Vue({
+        el: "#customerinfo",
+        data: {
+            customer: customer
+        }
+    });
+    var title = new Vue({
+        el: "#title", data: {customer: customer}
+    });
+    var viewearthquake = new Vue({
+        el: "#viewearthquake",
+        data: {
+            customer: customer,
+            earthquakes: []
+        },
+        methods: {
+            view: function () {
+                axios.get('/group/findmyeq?customerId=' + customer.id)
+                    .then(function (response) {
+                        console.log(response.data);
+                        viewearthquake.earthquakes = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            vieweq: function (e) {
+                console.log(e);
+                // axios.get('/earthquake/findall')
+                //     .then(function (response) {
+                //         console.log(response.data);
+                //         viewearthquake.earthquakes = response.data.reverse();
+                //     })
+                //     .catch(function (error) {
+                //         console.log(error);
+                //     });
+            },
+            viewdata: function (e) {
+                console.log(e)
+            },
+            exportdata: function (e) {
+                console.log(e)
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

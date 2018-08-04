@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <link href="/static/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/static/js/bootstrap-table.js"></script>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title>后台管理页面</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top ">
+    <a class="navbar-brand" href="#"><span id="eqname"></span>后台管理</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">主页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/data">数据管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/information">信息公告</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/admin/media">图片视频音频</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                   href="#list-home" role="tab" aria-controls="home">基本信息</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                   href="#list-profile" role="tab" aria-controls="profile">分组信息</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                   href="#list-messages" role="tab" aria-controls="messages">其他信息</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div id="eqinfo">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">名称：{{eq.name}}</li>
+                            <li class="list-group-item">时间：{{eq.dateTime}}</li>
+                            <li class="list-group-item">编号：{{eq.numbering}}</li>
+                            <li class="list-group-item">深度：{{eq.deep}}</li>
+                            <li class="list-group-item">震级：{{eq.level}}</li>
+                            <li class="list-group-item">纬度：{{eq.lat}}</li>
+                            <li class="list-group-item">经度：{{eq.lng}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    <div id="viewcustomer">
+                        <a href="javascript:void(0)" onclick="initCustomerTable()">查看分组人员信息</a>
+                    </div>
+                    <hr>
+                    <div id="tableall">
+                        <div id="toolbar">
+                            <!--<button id="exportdata" class="btn btn-primary" >-->
+                            <!--&lt;!&ndash;<i class="glyphicon glyphicon-remove"></i> &ndash;&gt;导出-->
+                            <!--</button>-->
+                        </div>
+                        <table id="customerTable" data-toolbar="#toolbar"></table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    3...
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    4...
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab-right" role="tablist">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+
+    var earthquake = [[${eq}]];
+    sessionStorage.setItem("earthquake", JSON.stringify(earthquake));
+    console.log(earthquake);
+    $("#eqname").text(earthquake.name);
+    var eqinfo = new Vue({
+        el: "#eqinfo",
+        data: {
+            eq: earthquake
+        }
+    });
+
+
+    var $customerTable = $("#customerTable");
+
+
+    function initCustomerTable() {
+
+        $customerTable.bootstrapTable({
+            url: "/customer/admin/FindByGroup?earthquakeId=" + earthquake.id, //请求后台的URL（*）
+            contentType: "application/json",
+            method: 'GET', //请求方式（*）
+            // toolbar: '#toolbar', //工具按钮用哪个容器
+            striped: true, //是否显示行间隔色
+            cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            sortable: true, //是否启用排序
+            sortOrder: "asc", //排序方式
+//                queryParams: oTableInit.queryParams,//传递参数（*）
+            sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+            pagination: true, //是否显示分页（*）
+            pageNumber: 1, //初始化加载第一页，默认第一页
+            pageSize: 10, //每页的记录行数（*）
+            // queryParamsType: '',//查询参数组织方式
+            // queryParams: queryParams,//请求服务器时所传的参数
+            pageList: [10, 20, 50], //可供选择的每页的行数（*）
+            search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            strictSearch: false,
+            showColumns: true, //是否显示所有的列
+            showRefresh: true, //是否显示刷新按钮
+            minimumCountColumns: 2, //最少允许的列数
+            clickToSelect: true, //是否启用点击选中行
+            // height: 500, //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            // width:800,
+            uniqueId: "id", //每一行的唯一标识，一般为主键列
+            showToggle: true, //是否显示详细视图和列表视图的切换按钮
+            cardView: false, //是否显示详细视图
+            detailView: false, //是否显示父子表
+            clickEdit: false,
+            columns: [{
+                field: 'id',
+                title: '',
+                align: 'center',
+                events: operateEvents,
+                formatter: operateFormatter
+
+            }, {
+                field: 'groupNumber',
+                title: '小组编号',
+                align: 'center',
+                valign: 'middle',
+                sortable: true,
+            }, {
+                field: 'isLeader',
+                title: '是否组长',
+                align: 'center',
+                valign: 'middle',
+                sortable: true,
+            }, {
+                field: 'name',
+                title: '姓名',
+                align: 'center',
+                valign: 'middle',
+                sortable: true,
+
+
+            }, {
+                field: 'profTitle',
+                title: '职称',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+            }, {
+                field: 'department',
+                title: '单位',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+            }, {
+                field: 'discipline',
+                title: '专业',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+
+            }, {
+                field: 'phone',
+                title: '电话',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+            }, {
+                field: 'email',
+                title: '邮箱',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+
+            }, {
+                field: 'address',
+                title: '地址',
+                align: 'center',
+                valign: 'middle',
+                sortable: true
+            }
+            ],
+
+            onLoadSuccess: function (res) {
+                console.log(res);
+                return res;
+            },
+            onLoadError: function () {
+                alert("数据加载失败！");
+            }
+        });
+    }
+
+    //请求成功方法
+    function responseHandler(result) {
+
+        //如果没有错误则返回数据，渲染表格
+        return {
+            total: result.totalPages, //总页数,前面的key必须为"total"
+            rows: result.content//行数据，前面的key要与之前设置的dataField的值一致.
+        };
+    }
+
+    //请求服务数据时所传参数
+    function queryParams(params) {
+        console.log(params);
+        return {
+            //每页多少条数据
+            pageNumber: params.pageNumber - 1,
+            //请求第几页
+            pageSize: params.pageSize,
+            earthquakeId: earthquake.id
+        }
+    }
+
+    function operateFormatter(value, row, index) {
+        console.log(row);
+        sessionStorage.setItem("customer", JSON.stringify(row));
+
+        return [
+            '<a class="id-card" style="height: 25px;width: 25px;" target="_blank" href="/customer/data?eid=' + earthquake.id + '&cid=' + value + '"   title="查看详情">',
+            '<i class="fa fa-id-card"></i>',
+            '</a>'
+        ].join('');
+    }
+
+    window.operateEvents = {
+        'click .id-card': function (e, value, row, index) {
+            console.log(e, value, row, index)
+        }
+    };
+
+    // window.onload = initCustomerTable();
+
+    var viewcustomer = new Vue({
+        el: "#viewcustomer",
+        data: {
+            customers: []
+        },
+        methods: {
+            view: function () {
+                initCustomerTable();
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

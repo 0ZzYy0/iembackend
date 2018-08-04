@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+    <script src="/static/js/md5.js"></script>
+    <title>管理员登录</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row" style="margin-top: 200px;">
+        <div class="col">
+
+        </div>
+        <div class="col" id="loginForm">
+            <div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">管理员账号</label>
+                    <input v-model="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="输入账号">
+                    <small id="emailHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">管理员密码</label>
+                    <input type="password" v-model="password" class="form-control" id="exampleInputPassword1"
+                           placeholder="输入密码">
+                </div>
+
+            </div>
+            <button class="btn btn-primary" @click="login">提交</button>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+<script>
+    // var server = "http://47.105.56.124";
+    var server = "http://localhost"
+
+    function login() {
+        console.log(hex_md5(loginForm.password).toLocaleUpperCase(), loginForm.userName)
+    }
+
+    var loginForm = new Vue({
+        el: "#loginForm",
+        data: {
+            userName: "",
+            password: "",
+            dateTime: "",
+            sign: ""
+        },
+        methods: {
+            login: function () {
+                let datetime = new Date();
+                let sign = hex_md5(loginForm.password + datetime.getTime()).toLocaleUpperCase();
+                console.log(sign);
+                axios({
+                    method: "post",
+                    url: "/login/normaladmin?loginAccount=" + loginForm.userName + "&timestamp=" + datetime.getTime() + "&sign=" + sign
+                })
+                    .then(function (response) {
+                        console.log(response.data);
+                        if (response.data.id) {
+                            sessionStorage.setItem("earthquake", JSON.stringify(response.data));
+                            window.location.href = "/admin/manage?eid=" + response.data.id
+                        }
+                        else alert("error");
+
+                    })
+                    .catch(function (response) {
+
+                    });
+
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

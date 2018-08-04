@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <link href="/static/wangeditor/wangEditor.min.css" rel="stylesheet"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <script type="text/javascript" src="/static/wangeditor/wangEditor.min.js"></script>
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title>数据管理</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top " id="main_nav">
+    <a class="navbar-brand" v-bind:href="['/admin/manage?eid=']+eid"><span id="eqname"></span>后台管理</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" v-bind:href="['/admin/manage?eid=']+eid">主页<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">数据管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/information">信息公告</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/media">图片视频音频</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                   href="#list-home" role="tab" aria-controls="home">导出数据</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                   href="#list-profile" role="tab" aria-controls="profile">计算结果</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                   href="#list-messages" role="tab" aria-controls="messages">其他</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div id="exportData">
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            烈度调查——调查点信息导出
+                                        </div>
+                                        <div class="col-3">
+                                            <a target="_blank"
+                                               v-bind:href="['/intensitysurvey/admin/exportIntensitySurveyAll?eid=']+eid">全部导出</a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a target="_blank"
+                                               v-bind:href="['/intensitysurvey/admin/exportIntensitySurveyByGroup?eid=']+eid">分组导出</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            烈度调查——群体调查信息导出
+                                        </div>
+                                        <div class="col-3">
+                                            <a target="_blank"
+                                               v-bind:href="['/intensitysurvey/admin/exportMultiSurveyAll?eid=']+eid">全部导出</a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a target="_blank"
+                                               v-bind:href="['/intensitysurvey/admin/exportMultiSurveyByGroup?eid=']+eid">分组导出</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+
+
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    4...
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab1" role="tablist">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    var earthquake = JSON.parse(sessionStorage.getItem("earthquake"));
+    console.log(earthquake);
+    $("#eqname").text(earthquake.name);
+
+
+    var exportData = new Vue({
+        el: "#exportData",
+        data: {
+            eid: earthquake.id
+        }
+    });
+    var main_nav = new Vue({
+        el: "#main_nav",
+        data: {
+            eid: earthquake.id
+        }
+    })
+
+</script>
+
+</body>
+</html>

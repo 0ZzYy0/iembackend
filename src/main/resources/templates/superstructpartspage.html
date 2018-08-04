@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <link href="/static/css/font-awesome.css" rel="stylesheet"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/static/js/bootstrap-table.js"></script>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+    <!-- Latest compiled and minified Locales -->
+
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title>后台管理页面</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top ">
+    <a class="navbar-brand" href="#"><span id="stypeName"></span>结构管理</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                   href="#list-home" role="tab" aria-controls="home">结构查看</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div id="partTypeInfo">
+                        <div>
+                            <div>
+                                <a href="javascript:void(0);" @click="viewParts">点击查看</a>
+                            </div>
+                            <hr>
+                            <div>
+                                <ul class="list-group list-group-flush">
+                                    <div v-if="parts.length>0">
+                                        <li class="list-group-item" v-for="(item, index) in parts">
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{item.partType}}
+                                                </div>
+                                                <div class="col">
+                                                    {{item.typeName}}
+                                                </div>
+                                                <div class="col"><a href="javascript:void(0)"
+                                                                    @click="add(index)">添加子结构</a>
+                                                    <a style="padding-left: 50px;color: red;" href="javascript:void(0)"
+                                                       @click="del(item.id)">删除</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <li v-else class="list-group-item">暂无</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    设置
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab-right" role="tablist">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="addpart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addaccountmodalTitle">{{fatherPT}}{{fatherName}}#添加子结构</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">子结构名称</label>
+                        <textarea v-model="partTypeNames" placeholder="#号分隔" class="form-control" id="recipient-name">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" @click="addnew">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+
+    var sType = [[${sType}]];
+
+    console.log(sType);
+    $("#stypeName").text(stypeName.typeName);
+
+    var addpart = new Vue({
+        el: "#addpart",
+        data: {
+            fatherId: "",
+            fatherName: "",
+            fatherLevel: 0,
+            partTypeNames: "",
+            fatherPT: "",
+        },
+        methods: {
+
+            addnew: function () {
+                axios({
+                    method: "post",
+                    url: "/StructurePart/su/addMulti",
+                    data: {
+                        fatherId: addpart.fatherId,
+                        fatherName: addpart.fatherName,
+                        fatherLevel: addpart.fatherLevel,
+                        partTypeNames: addpart.partTypeNames
+                    }
+                })
+                    .then(function (response) {
+                        console.log(response.data);
+
+                        $("#addpart").modal('hide');
+                        alert("成功");
+                        partTypeInfo.viewParts()
+                    })
+                    .catch(function (response) {
+
+                    });
+            }
+        }
+    });
+
+
+    var partTypeInfo = new Vue({
+        el: "#partTypeInfo",
+        data: {
+            parts: []
+        },
+        methods: {
+            viewParts: function () {
+                let parts = [];
+                parts.push(sType);
+                axios.get('/StructurePart/su/findAllByFatherId?fid=' + sType.id)
+                    .then(function (response) {
+                        parts = parts.concat(response.data);
+                        console.log(parts);
+                        partTypeInfo.parts = parts;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }, del: function (id) {
+                console.log(id);
+                axios.get('/StructurePart/su/delRecursiveById?id=' + id)
+                    .then(function (response) {
+
+                        console.log(response);
+                        partTypeInfo.viewParts();
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            add: function (e) {
+                console.log(e);
+                let p = this.parts[parseInt(e)];
+                addpart.fatherId = p.id;
+                addpart.fatherLevel = p.level;
+                addpart.fatherName = p.typeName;
+                addpart.fatherPT = p.partType;
+                console.log(addpart.fatherLevel);
+                $("#addpart").modal('show');
+                console.log(p)
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

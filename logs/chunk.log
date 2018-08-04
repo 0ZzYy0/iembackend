@@ -1,0 +1,609 @@
+2018-08-04 10:17:44.465  INFO 11036 --- [restartedMain] c.i.s.iembackend.IembackendApplication   : Starting IembackendApplication on DESKTOP-I13Q69P with PID 11036 (D:\works\iem\iembackend\target\classes started by LAB-PC in D:\works\iem\iembackend)
+2018-08-04 10:17:44.498  INFO 11036 --- [restartedMain] c.i.s.iembackend.IembackendApplication   : No active profile set, falling back to default profiles: default
+2018-08-04 10:17:44.733  INFO 11036 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@bd33081: startup date [Sat Aug 04 10:17:44 CST 2018]; root of context hierarchy
+2018-08-04 10:17:48.402  INFO 11036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2018-08-04 10:17:48.444  INFO 11036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-04 10:17:48.446  INFO 11036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.29
+2018-08-04 10:17:48.460  INFO 11036 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\works\new_env\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Users\LAB-PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-08-04 10:17:48.905  INFO 11036 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-04 10:17:48.905  INFO 11036 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4172 ms
+2018-08-04 10:17:49.011  INFO 11036 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-04 10:17:49.015  INFO 11036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-04 10:17:49.631  INFO 11036 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-08-04 10:17:50.151  INFO 11036 --- [cluster-ClusterId{value='5b650ccd54c72f2b1cfb427a', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:29}] to localhost:27017
+2018-08-04 10:17:50.158  INFO 11036 --- [cluster-ClusterId{value='5b650ccd54c72f2b1cfb427a', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 4]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3858498}
+2018-08-04 10:17:51.014  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/account/create],methods=[POST]}" onto public com.iem.safety.iembackend.account.Account com.iem.safety.iembackend.account.AccountController.create(java.lang.String,long)
+2018-08-04 10:17:51.017  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/update],methods=[POST]}" onto public com.iem.safety.iembackend.customer.Customer com.iem.safety.iembackend.customer.CustomerController.update(com.iem.safety.iembackend.customer.Customer,javax.servlet.http.HttpServletRequest)
+2018-08-04 10:17:51.017  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.customer.CustomerController.login(java.lang.String,javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-08-04 10:17:51.018  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/su/FindAll],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.customer.CustomerController.suFindAll(int,int)
+2018-08-04 10:17:51.019  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/admin/FindByGroup],methods=[GET]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> com.iem.safety.iembackend.customer.CustomerController.adminFindByGroup(java.lang.String)
+2018-08-04 10:17:51.020  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/DetailSeismic/save],methods=[POST]}" onto public com.iem.safety.iembackend.detaileismic.DetailSeismic com.iem.safety.iembackend.detaileismic.DetailSeismicController.saveAll(com.iem.safety.iembackend.detaileismic.DetailSeismic) throws java.io.IOException
+2018-08-04 10:17:51.021  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/DetailPartInfo/save],methods=[POST]}" onto public com.iem.safety.iembackend.detailpartinfo.DetailPartInfo com.iem.safety.iembackend.detailpartinfo.DetailPartInfoController.saveAll(com.iem.safety.iembackend.detailpartinfo.DetailPartInfo) throws java.io.IOException
+2018-08-04 10:17:51.022  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/DetailPartInfo/getByAssessIdAndPartId],methods=[GET]}" onto public com.iem.safety.iembackend.detailpartinfo.DetailPartInfo com.iem.safety.iembackend.detailpartinfo.DetailPartInfoController.getSubPartByFid(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.023  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/findall],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.earthquake.Earthquake> com.iem.safety.iembackend.earthquake.EarthquakeController.findAll()
+2018-08-04 10:17:51.024  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/su/add],methods=[POST]}" onto public com.iem.safety.iembackend.earthquake.Earthquake com.iem.safety.iembackend.earthquake.EarthquakeController.findAllAndGroup(com.iem.safety.iembackend.earthquake.Earthquake)
+2018-08-04 10:17:51.024  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/findallandgroup],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.earthquake.EarthquakeController.findAllAndGroup(java.lang.String)
+2018-08-04 10:17:51.025  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/su/modify],methods=[POST]}" onto public com.iem.safety.iembackend.earthquake.Earthquake com.iem.safety.iembackend.earthquake.EarthquakeController.modify(com.iem.safety.iembackend.earthquake.Earthquake)
+2018-08-04 10:17:51.026  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ExpectEnvir/save],methods=[POST]}" onto public com.iem.safety.iembackend.expectenvir.ExpectEnvir com.iem.safety.iembackend.expectenvir.ExpectEnvirController.save(com.iem.safety.iembackend.expectenvir.ExpectEnvir)
+2018-08-04 10:17:51.026  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ExpectEnvir/getByAssessId],methods=[GET]}" onto public com.iem.safety.iembackend.utils.Message com.iem.safety.iembackend.expectenvir.ExpectEnvirController.getByAssessId(java.lang.String)
+2018-08-04 10:17:51.031  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/admin/getByTypeIdAndEQId],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.fileEntity.FileEntity> com.iem.safety.iembackend.fileEntity.FileEntityController.getByTypeIdAndEQId(java.lang.String,int)
+2018-08-04 10:17:51.032  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/admin/upload],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.fileEntity.FileEntityController.adminUpload(java.lang.String,org.springframework.web.multipart.MultipartRequest) throws java.io.IOException
+2018-08-04 10:17:51.032  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.fileEntity.FileEntityController.delById(java.lang.String)
+2018-08-04 10:17:51.032  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/upload],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.fileEntity.FileEntityController.upload(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String,int) throws java.io.IOException
+2018-08-04 10:17:51.033  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/join],methods=[POST]}" onto public com.iem.safety.iembackend.group.Group com.iem.safety.iembackend.group.GroupController.join(com.iem.safety.iembackend.group.Group)
+2018-08-04 10:17:51.034  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/findbyeidandcustomerid],methods=[GET]}" onto public com.iem.safety.iembackend.group.Group com.iem.safety.iembackend.group.GroupController.findByEidAndCustomerId(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.034  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/getbycustomerid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.group.Group> com.iem.safety.iembackend.group.GroupController.getByCustomerId(java.lang.String)
+2018-08-04 10:17:51.035  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/findmyeq],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.earthquake.Earthquake> com.iem.safety.iembackend.group.GroupController.findMyEQ(java.lang.String)
+2018-08-04 10:17:51.038  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/saveall],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey> com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.saveAll(java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey>) throws java.io.IOException
+2018-08-04 10:17:51.039  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportMultiSurveyAll],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportMultiSurveyAll(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.039  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportMultiSurveyByGroup],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportMultiSurveyByGroup(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.040  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportIntensitySurveyAll],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportIntensitySurveyAll(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.040  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/customer/exportMultiSurveyByEid],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportCustomerMultiSurveyByEid(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.040  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportIntensitySurveyByGroup],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportIntensitySurveyByGroup(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.041  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/customer/exportIntensitySurveyByEid],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportByEid(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.041  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/getbyoidandeid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey> com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.getByOidAndTSLg(java.lang.String,java.lang.String) throws java.io.IOException
+2018-08-04 10:17:51.041  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.delById(java.lang.String)
+2018-08-04 10:17:51.041  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/getByEidForMap],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey> com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.getByEidForMap(java.lang.String) throws java.io.IOException
+2018-08-04 10:17:51.042  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/normalcustomer],methods=[POST]}" onto public com.iem.safety.iembackend.customer.Customer com.iem.safety.iembackend.login.LoginController.loginCustomer(java.lang.String,long,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-04 10:17:51.042  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/normaladmin],methods=[POST]}" onto public com.iem.safety.iembackend.earthquake.Earthquake com.iem.safety.iembackend.login.LoginController.loginAdmin(java.lang.String,long,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-04 10:17:51.044  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/insertone],methods=[POST]}" onto public com.iem.safety.iembackend.multisurvey.Multisurvey com.iem.safety.iembackend.multisurvey.MultisurveyController.insertOne(com.iem.safety.iembackend.multisurvey.Multisurvey)
+2018-08-04 10:17:51.045  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/saveall],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.multisurvey.Multisurvey> com.iem.safety.iembackend.multisurvey.MultisurveyController.saveAll(java.util.List<com.iem.safety.iembackend.multisurvey.Multisurvey>)
+2018-08-04 10:17:51.045  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.multisurvey.MultisurveyController.delById(java.lang.String)
+2018-08-04 10:17:51.046  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/getbysuidandoid],methods=[GET]}" onto public com.iem.safety.iembackend.multisurvey.Multisurvey com.iem.safety.iembackend.multisurvey.MultisurveyController.getBySurveyId(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.047  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/add],methods=[POST]}" onto public com.iem.safety.iembackend.news.News com.iem.safety.iembackend.news.NewsController.add(com.iem.safety.iembackend.news.News)
+2018-08-04 10:17:51.048  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/del],methods=[DELETE]}" onto public void com.iem.safety.iembackend.news.NewsController.delete(java.lang.String)
+2018-08-04 10:17:51.048  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/admin/getbyeidandc],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.news.News> com.iem.safety.iembackend.news.NewsController.getByCategoryEidNewType(java.lang.String,java.lang.String,java.lang.String)
+2018-08-04 10:17:51.048  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/getById],methods=[GET]}" onto public com.iem.safety.iembackend.news.News com.iem.safety.iembackend.news.NewsController.getById(java.lang.String)
+2018-08-04 10:17:51.049  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/getByEIdAndType],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.news.News> com.iem.safety.iembackend.news.NewsController.getByEIdAndType(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.052  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/getByCategory],methods=[GET]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.iem.safety.iembackend.news.NewsController.getByCategory(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String)
+2018-08-04 10:17:51.054  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/normaladmin/su/add],methods=[POST]}" onto public com.iem.safety.iembackend.normaladmin.NormalAdmin com.iem.safety.iembackend.normaladmin.NormalAdminController.add(com.iem.safety.iembackend.normaladmin.NormalAdmin)
+2018-08-04 10:17:51.054  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/normaladmin/su/findbyeid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.normaladmin.NormalAdmin> com.iem.safety.iembackend.normaladmin.NormalAdminController.add(java.lang.String)
+2018-08-04 10:17:51.058  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/save],methods=[POST]}" onto public com.iem.safety.iembackend.safetyassess.Safetyassess com.iem.safety.iembackend.safetyassess.SafetyassessController.save(com.iem.safety.iembackend.safetyassess.Safetyassess)
+2018-08-04 10:17:51.058  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.safetyassess.SafetyassessController.delById(java.lang.String)
+2018-08-04 10:17:51.058  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/getbyowneridandeid],methods=[GET]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> com.iem.safety.iembackend.safetyassess.SafetyassessController.getByUserId(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.060  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/getbyuuid],methods=[GET]}" onto public com.iem.safety.iembackend.utils.Message com.iem.safety.iembackend.safetyassess.SafetyassessController.getByUuid(java.lang.String)
+2018-08-04 10:17:51.062  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/saveall],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey> com.iem.safety.iembackend.singlesurvey.SinglesurveyController.saveAll(java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey>)
+2018-08-04 10:17:51.063  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.singlesurvey.SinglesurveyController.delById(java.lang.String)
+2018-08-04 10:17:51.063  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/getbysurveyid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey> com.iem.safety.iembackend.singlesurvey.SinglesurveyController.getBySurveyId(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.063  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/getbysurveyuuid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey> com.iem.safety.iembackend.singlesurvey.SinglesurveyController.getBySurveyUuid(java.lang.String,java.lang.String)
+2018-08-04 10:17:51.067  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/add],methods=[POST]}" onto public com.iem.safety.iembackend.structurepart.StructurePart com.iem.safety.iembackend.structurepart.StructurePartController.add(com.iem.safety.iembackend.structurepart.StructurePart)
+2018-08-04 10:17:51.067  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/findAllByFatherId],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.findAllRecursiveByFatherId(java.lang.String)
+2018-08-04 10:17:51.068  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/getSubPartByAssessId],methods=[GET]}" onto public com.iem.safety.iembackend.utils.Message com.iem.safety.iembackend.structurepart.StructurePartController.getSubPartByAssessId(java.lang.String)
+2018-08-04 10:17:51.068  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/findAll],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.findAll()
+2018-08-04 10:17:51.068  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/getSubPartByFid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.getSubPartByFid(java.lang.String)
+2018-08-04 10:17:51.068  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/addMulti],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.addMulti(java.util.Map<java.lang.String, java.lang.Object>)
+2018-08-04 10:17:51.072  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/delRecursiveById],methods=[GET]}" onto public void com.iem.safety.iembackend.structurepart.StructurePartController.delRecursiveById(java.lang.String)
+2018-08-04 10:17:51.073  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructureType/findAll],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structuretype.StructureType> com.iem.safety.iembackend.structuretype.StructureTypeController.getByUuid()
+2018-08-04 10:17:51.074  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/login],methods=[POST]}" onto public com.iem.safety.iembackend.superadmin.SuperAdmin com.iem.safety.iembackend.superadmin.SuperAdminController.login(java.lang.String,long,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-04 10:17:51.078  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.home()
+2018-08-04 10:17:51.078  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.loginCustomer()
+2018-08-04 10:17:51.078  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginsu]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.loginSupper()
+2018-08-04 10:17:51.079  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/customer]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.suCustomer()
+2018-08-04 10:17:51.079  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/manage]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminManage(java.lang.String,org.springframework.ui.Model)
+2018-08-04 10:17:51.079  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/manage]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.suManage()
+2018-08-04 10:17:51.079  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/StructureParts]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.suStructureParts(java.lang.String,org.springframework.ui.Model)
+2018-08-04 10:17:51.080  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/newsdetail]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.newsDetail(java.lang.String,org.springframework.ui.Model)
+2018-08-04 10:17:51.080  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/data]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminData()
+2018-08-04 10:17:51.080  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/manage]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.customerSelf(java.lang.String,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest)
+2018-08-04 10:17:51.080  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/media]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminMedia()
+2018-08-04 10:17:51.081  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/information]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminInfo()
+2018-08-04 10:17:51.081  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginadmin]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.loginNormalAdmin()
+2018-08-04 10:17:51.081  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/data]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.customerData(java.lang.String,java.lang.String,org.springframework.ui.Model)
+2018-08-04 10:17:51.087  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-04 10:17:51.088  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-04 10:17:51.154  INFO 11036 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-04 10:17:51.272  INFO 11036 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@bd33081: startup date [Sat Aug 04 10:17:44 CST 2018]; root of context hierarchy
+2018-08-04 10:17:51.931  INFO 11036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-08-04 10:17:51.969  INFO 11036 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-04 10:17:52.029  INFO 11036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2018-08-04 10:17:52.033  INFO 11036 --- [restartedMain] c.i.s.iembackend.IembackendApplication   : Started IembackendApplication in 8.744 seconds (JVM running for 10.166)
+2018-08-04 10:36:52.010  INFO 11036 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-04 10:36:52.011  INFO 11036 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-04 10:36:52.047  INFO 11036 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms
+2018-08-04 10:36:52.079  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 10:36:52.088  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 10:36:52.153  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.customer.CustomerService         : 小程序登录code: 061q08df0T1fEz1AAKbf0h67df0q08dJ
+2018-08-04 10:36:53.402  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.customer.CustomerService         : {"session_key":"C24O7gdfkz6RR63pIg9IsQ==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 10:36:53.561  INFO 11036 --- [http-nio-80-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:32}] to localhost:27017
+2018-08-04 10:36:54.031  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 10:36:54.032  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:37:26.849  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:37:26.849  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:37:48.457  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:37:48.458  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:39:05.524  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:39:05.525  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:39:05.526  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:39:05.531  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:39:05.535  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:39:10.026  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:39:10.026  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:39:10.934  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:39:10.935  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:39:10.936  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:39:10.939  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:39:10.941  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:39:15.026  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:39:15.027  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:39:35.211  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/fileentity/upload
+2018-08-04 10:39:35.211  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:39:35.215  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.fileEntity.FileEntityService     : dir:D:\works\iem\iembackend\static/5b6448e17fa6c927a051f3dd
+2018-08-04 10:39:35.323  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/saveall
+2018-08-04 10:39:35.324  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:40:17.631  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/delbyid
+2018-08-04 10:40:17.632  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:17.315  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:47:17.316  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:36.057  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:36.057  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:36.702  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:36.703  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:37.324  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:37.324  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:37.916  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:37.916  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:39.973  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:47:39.973  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:39.974  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:47:39.979  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:47:39.981  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:47:40.559  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:40.559  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:41.269  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:47:41.270  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:41.271  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:47:41.273  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:47:41.275  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:47:54.069  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:54.069  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:55.100  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:47:55.100  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:57.704  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:47:57.705  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:47:57.705  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:47:57.708  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:47:57.710  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:48:50.303  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:48:50.304  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:48:51.855  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:48:51.855  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:48:52.493  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:48:52.493  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:48:54.572  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:48:54.572  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:48:54.573  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:48:54.574  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:48:54.576  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:49:29.944  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:49:29.944  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:52:06.081  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/saveall
+2018-08-04 10:52:06.082  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:52:34.010  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:52:34.010  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:52:41.537  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:52:41.537  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:52:57.989  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 10:52:57.989  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:53:10.821  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:53:10.822  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:53:10.822  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:53:10.824  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:53:10.826  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:53:11.688  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:53:11.688  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:53:11.689  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:53:11.691  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:53:11.694  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:53:12.589  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:53:12.589  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:53:13.652  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:53:13.653  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:53:13.653  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:53:13.655  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:53:13.657  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:53:13.934  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:53:13.934  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:53:13.935  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:53:13.941  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:53:13.943  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:55:12.727  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:55:12.727  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:55:13.803  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getById
+2018-08-04 10:55:13.803  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:57:43.825  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 10:57:43.828  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 10:57:43.830  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.customer.CustomerService         : 小程序登录code: 0618Hcrc1R2Pyu0n5Ypc1wt9rc18HcrB
+2018-08-04 10:57:44.413  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.customer.CustomerService         : {"session_key":"pclTaMkUD\/hR\/ODwA7G2PQ==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 10:57:44.516  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 10:57:44.516  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:57:46.016  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:57:46.017  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:57:46.017  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:57:46.020  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:57:46.022  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:57:49.814  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:57:49.814  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:57:53.414  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:57:53.415  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:57:57.676  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 10:57:57.676  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:57:57.677  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 10:57:57.679  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 10:57:57.682  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 10:58:00.804  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 10:58:00.804  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:58:09.583  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 10:58:09.584  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 10:58:09.586  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.customer.CustomerService         : 小程序登录code: 011hVtwE0G8icd2yagwE0gIIwE0hVtwC
+2018-08-04 10:58:10.305  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.customer.CustomerService         : {"session_key":"pclTaMkUD\/hR\/ODwA7G2PQ==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 10:58:10.439  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 10:58:10.440  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 10:58:31.047  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 10:58:31.048  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 10:58:31.049  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.customer.CustomerService         : 小程序登录code: 021c2kIC1K2Fk407qZHC1gcFIC1c2kIC
+2018-08-04 10:58:31.631  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.customer.CustomerService         : {"session_key":"pclTaMkUD\/hR\/ODwA7G2PQ==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 10:58:31.786  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 10:58:31.787  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:03:09.600  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:03:09.601  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:03:09.603  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.customer.CustomerService         : 小程序登录code: 071OXuIK0sYNI52mbnJK0cOmIK0OXuIw
+2018-08-04 11:03:10.464  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.customer.CustomerService         : {"session_key":"ZkjJHP9M9kX24ZrZkhoYDg==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:03:10.625  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:03:10.626  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:15:41.720  WARN 11036 --- [http-nio-80-exec-1] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/pagead/js/adsbygoogle.js] in DispatcherServlet with name 'dispatcherServlet'
+2018-08-04 11:15:41.731  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/error
+2018-08-04 11:15:41.732  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:15:41.943  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/login
+2018-08-04 11:15:41.943  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:15:47.060  WARN 11036 --- [http-nio-80-exec-3] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/pagead/js/adsbygoogle.js] in DispatcherServlet with name 'dispatcherServlet'
+2018-08-04 11:15:47.063  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/error
+2018-08-04 11:15:47.063  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:15:47.129  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/login
+2018-08-04 11:15:47.129  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:19:42.048  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:19:42.049  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:19:42.051  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.customer.CustomerService         : 小程序登录code: 021QjpYX0d3iQ22YLkZX0aouYX0QjpYn
+2018-08-04 11:19:43.015  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.customer.CustomerService         : {"session_key":"sLWNOI\/KTxy1jtsk2R+oCQ==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:19:43.183  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:19:43.183  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:24:40.226  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:24:40.228  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:24:40.230  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.customer.CustomerService         : 小程序登录code: 071EfHMr1NCzen0XG5Or1XwGMr1EfHMs
+2018-08-04 11:24:40.998  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.customer.CustomerService         : {"session_key":"sCygew6ZlyNG2VoLKRxftA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:24:41.193  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:24:41.194  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:24:51.715  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:24:51.716  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:24:51.718  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.customer.CustomerService         : 小程序登录code: 021PNG9y1UBBYh05Wjay1dlX9y1PNG9x
+2018-08-04 11:24:52.337  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.customer.CustomerService         : {"session_key":"sCygew6ZlyNG2VoLKRxftA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:24:52.516  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:24:52.516  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:24:58.204  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:24:58.205  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:24:58.205  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:24:58.208  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:24:58.210  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:25:24.969  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/news/getByEIdAndType
+2018-08-04 11:25:24.969  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:33.756  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:25:33.756  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:33.757  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:25:33.759  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:25:33.761  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:25:36.193  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:25:36.193  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:36.194  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:25:36.196  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:25:36.198  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:25:36.393  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:25:36.393  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:36.393  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:25:36.395  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:25:36.397  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:25:36.938  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:25:36.938  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:36.938  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:25:36.940  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:25:36.942  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:25:37.114  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:25:37.115  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:37.115  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:25:37.117  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:25:37.119  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:25:37.304  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:25:37.304  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:25:37.305  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:25:37.307  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:25:37.309  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:26:05.834  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:26:05.834  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:26:05.834  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:26:05.837  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:26:05.838  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:27:03.195  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:27:03.196  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:27:03.197  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.customer.CustomerService         : 小程序登录code: 081CmAlL1etib51rYSiL1LySlL1CmAly
+2018-08-04 11:27:03.949  INFO 11036 --- [http-nio-80-exec-8] c.i.s.i.customer.CustomerService         : {"session_key":"J8n23cv7V3cf29FJfk6JQA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:27:04.117  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:27:04.118  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:27:07.899  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:27:07.899  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:27:07.900  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.customer.CustomerService         : 小程序登录code: 0812xaBP11tzZ91xtLAP1gHQAP12xaBw
+2018-08-04 11:27:08.658  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.customer.CustomerService         : {"session_key":"J8n23cv7V3cf29FJfk6JQA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:27:08.810  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:27:08.810  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:29:34.527  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:29:34.529  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:29:34.532  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.customer.CustomerService         : 小程序登录code: 021yXcZ020XcGY0XK3Z02WY2Z02yXcZz
+2018-08-04 11:29:35.703  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.customer.CustomerService         : {"session_key":"GWW96HAk5JKqmfc8GBqaug==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:29:35.837  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:29:35.837  INFO 11036 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:29:48.364  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:29:48.364  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:29:48.365  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:29:48.367  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:29:48.369  INFO 11036 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:30:26.986  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:30:26.987  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:30:26.987  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:30:26.989  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:30:26.992  INFO 11036 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:30:35.564  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:30:35.565  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:30:35.565  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:30:35.568  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:30:35.570  INFO 11036 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:31:38.437  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:31:38.437  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:31:38.439  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.customer.CustomerService         : 小程序登录code: 061y2Cu50z4ZEK1Ex6v50r4Fu50y2Cuu
+2018-08-04 11:31:38.716  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:31:38.716  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:31:38.717  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.customer.CustomerService         : 小程序登录code: 071UTvM220oPWX0q2NM223ABM22UTvMz
+2018-08-04 11:31:39.123  INFO 11036 --- [http-nio-80-exec-10] c.i.s.i.customer.CustomerService         : {"session_key":"CFDxv6MJ9G9YNvNFl87rhA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:31:39.194  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:31:39.195  INFO 11036 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:31:39.346  INFO 11036 --- [http-nio-80-exec-9] c.i.s.i.customer.CustomerService         : {"session_key":"CFDxv6MJ9G9YNvNFl87rhA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:31:44.352  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:31:44.353  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:31:44.353  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:31:44.355  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:31:44.357  INFO 11036 --- [http-nio-80-exec-2] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:31:50.413  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:31:50.413  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:31:50.414  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:31:50.416  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:31:50.418  INFO 11036 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:33:57.929  INFO 12952 --- [restartedMain] c.i.s.iembackend.IembackendApplication   : Starting IembackendApplication on DESKTOP-I13Q69P with PID 12952 (D:\works\iem\iembackend\target\classes started by LAB-PC in D:\works\iem\iembackend)
+2018-08-04 11:33:57.933  INFO 12952 --- [restartedMain] c.i.s.iembackend.IembackendApplication   : No active profile set, falling back to default profiles: default
+2018-08-04 11:33:58.096  INFO 12952 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6ad58d4b: startup date [Sat Aug 04 11:33:58 CST 2018]; root of context hierarchy
+2018-08-04 11:34:03.371  INFO 12952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2018-08-04 11:34:03.415  INFO 12952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-08-04 11:34:03.415  INFO 12952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.29
+2018-08-04 11:34:03.538  INFO 12952 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\works\new_env\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Users\LAB-PC\AppData\Local\Microsoft\WindowsApps;;.]
+2018-08-04 11:34:03.759  INFO 12952 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-08-04 11:34:03.759  INFO 12952 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5663 ms
+2018-08-04 11:34:03.905  INFO 12952 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-08-04 11:34:03.910  INFO 12952 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-08-04 11:34:04.592  INFO 12952 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-08-04 11:34:05.417  INFO 12952 --- [cluster-ClusterId{value='5b651eac54c72f32980b75cb', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:39}] to localhost:27017
+2018-08-04 11:34:05.427  INFO 12952 --- [cluster-ClusterId{value='5b651eac54c72f32980b75cb', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 4]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=6155699}
+2018-08-04 11:34:06.918  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/account/create],methods=[POST]}" onto public com.iem.safety.iembackend.account.Account com.iem.safety.iembackend.account.AccountController.create(java.lang.String,long)
+2018-08-04 11:34:06.923  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/update],methods=[POST]}" onto public com.iem.safety.iembackend.customer.Customer com.iem.safety.iembackend.customer.CustomerController.update(com.iem.safety.iembackend.customer.Customer,javax.servlet.http.HttpServletRequest)
+2018-08-04 11:34:06.923  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/su/FindAll],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.customer.CustomerController.suFindAll(int,int)
+2018-08-04 11:34:06.924  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/admin/FindByGroup],methods=[GET]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> com.iem.safety.iembackend.customer.CustomerController.adminFindByGroup(java.lang.String)
+2018-08-04 11:34:06.924  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.customer.CustomerController.login(java.lang.String,javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-08-04 11:34:06.925  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/DetailSeismic/save],methods=[POST]}" onto public com.iem.safety.iembackend.detaileismic.DetailSeismic com.iem.safety.iembackend.detaileismic.DetailSeismicController.saveAll(com.iem.safety.iembackend.detaileismic.DetailSeismic) throws java.io.IOException
+2018-08-04 11:34:06.928  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/DetailPartInfo/save],methods=[POST]}" onto public com.iem.safety.iembackend.detailpartinfo.DetailPartInfo com.iem.safety.iembackend.detailpartinfo.DetailPartInfoController.saveAll(com.iem.safety.iembackend.detailpartinfo.DetailPartInfo) throws java.io.IOException
+2018-08-04 11:34:06.928  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/DetailPartInfo/getByAssessIdAndPartId],methods=[GET]}" onto public com.iem.safety.iembackend.detailpartinfo.DetailPartInfo com.iem.safety.iembackend.detailpartinfo.DetailPartInfoController.getSubPartByFid(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.929  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/findall],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.earthquake.Earthquake> com.iem.safety.iembackend.earthquake.EarthquakeController.findAll()
+2018-08-04 11:34:06.930  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/su/add],methods=[POST]}" onto public com.iem.safety.iembackend.earthquake.Earthquake com.iem.safety.iembackend.earthquake.EarthquakeController.findAllAndGroup(com.iem.safety.iembackend.earthquake.Earthquake)
+2018-08-04 11:34:06.933  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/findallandgroup],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.earthquake.EarthquakeController.findAllAndGroup(java.lang.String)
+2018-08-04 11:34:06.934  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/earthquake/su/modify],methods=[POST]}" onto public com.iem.safety.iembackend.earthquake.Earthquake com.iem.safety.iembackend.earthquake.EarthquakeController.modify(com.iem.safety.iembackend.earthquake.Earthquake)
+2018-08-04 11:34:06.936  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ExpectEnvir/save],methods=[POST]}" onto public com.iem.safety.iembackend.expectenvir.ExpectEnvir com.iem.safety.iembackend.expectenvir.ExpectEnvirController.save(com.iem.safety.iembackend.expectenvir.ExpectEnvir)
+2018-08-04 11:34:06.936  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/ExpectEnvir/getByAssessId],methods=[GET]}" onto public com.iem.safety.iembackend.utils.Message com.iem.safety.iembackend.expectenvir.ExpectEnvirController.getByAssessId(java.lang.String)
+2018-08-04 11:34:06.944  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/admin/upload],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.fileEntity.FileEntityController.adminUpload(java.lang.String,org.springframework.web.multipart.MultipartRequest) throws java.io.IOException
+2018-08-04 11:34:06.944  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.fileEntity.FileEntityController.delById(java.lang.String)
+2018-08-04 11:34:06.945  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/upload],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.iem.safety.iembackend.fileEntity.FileEntityController.upload(org.springframework.web.multipart.MultipartFile,java.lang.String,java.lang.String,java.lang.String,int) throws java.io.IOException
+2018-08-04 11:34:06.945  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fileentity/admin/getByTypeIdAndEQId],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.fileEntity.FileEntity> com.iem.safety.iembackend.fileEntity.FileEntityController.getByTypeIdAndEQId(java.lang.String,int)
+2018-08-04 11:34:06.948  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/join],methods=[POST]}" onto public com.iem.safety.iembackend.group.Group com.iem.safety.iembackend.group.GroupController.join(com.iem.safety.iembackend.group.Group)
+2018-08-04 11:34:06.948  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/getbycustomerid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.group.Group> com.iem.safety.iembackend.group.GroupController.getByCustomerId(java.lang.String)
+2018-08-04 11:34:06.948  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/findmyeq],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.earthquake.Earthquake> com.iem.safety.iembackend.group.GroupController.findMyEQ(java.lang.String)
+2018-08-04 11:34:06.949  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/group/findbyeidandcustomerid],methods=[GET]}" onto public com.iem.safety.iembackend.group.Group com.iem.safety.iembackend.group.GroupController.findByEidAndCustomerId(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.954  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/saveall],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey> com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.saveAll(java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey>) throws java.io.IOException
+2018-08-04 11:34:06.955  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.delById(java.lang.String)
+2018-08-04 11:34:06.956  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/getByEidForMap],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey> com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.getByEidForMap(java.lang.String) throws java.io.IOException
+2018-08-04 11:34:06.957  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/customer/exportIntensitySurveyByEid],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportByEid(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:06.957  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/getbyoidandeid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.intensitysurvey.Intensitysurvey> com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.getByOidAndTSLg(java.lang.String,java.lang.String) throws java.io.IOException
+2018-08-04 11:34:06.958  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportIntensitySurveyAll],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportIntensitySurveyAll(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:06.958  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportMultiSurveyByGroup],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportMultiSurveyByGroup(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:06.958  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportMultiSurveyAll],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportMultiSurveyAll(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:06.958  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/admin/exportIntensitySurveyByGroup],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportIntensitySurveyByGroup(java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:06.959  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/intensitysurvey/customer/exportMultiSurveyByEid],methods=[GET]}" onto public void com.iem.safety.iembackend.intensitysurvey.IntensitysurveyController.exportCustomerMultiSurveyByEid(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:06.960  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/normalcustomer],methods=[POST]}" onto public com.iem.safety.iembackend.customer.Customer com.iem.safety.iembackend.login.LoginController.loginCustomer(java.lang.String,long,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-04 11:34:06.961  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/normaladmin],methods=[POST]}" onto public com.iem.safety.iembackend.earthquake.Earthquake com.iem.safety.iembackend.login.LoginController.loginAdmin(java.lang.String,long,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-04 11:34:06.963  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/insertone],methods=[POST]}" onto public com.iem.safety.iembackend.multisurvey.Multisurvey com.iem.safety.iembackend.multisurvey.MultisurveyController.insertOne(com.iem.safety.iembackend.multisurvey.Multisurvey)
+2018-08-04 11:34:06.963  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/saveall],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.multisurvey.Multisurvey> com.iem.safety.iembackend.multisurvey.MultisurveyController.saveAll(java.util.List<com.iem.safety.iembackend.multisurvey.Multisurvey>)
+2018-08-04 11:34:06.964  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.multisurvey.MultisurveyController.delById(java.lang.String)
+2018-08-04 11:34:06.965  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/multisurvey/getbysuidandoid],methods=[GET]}" onto public com.iem.safety.iembackend.multisurvey.Multisurvey com.iem.safety.iembackend.multisurvey.MultisurveyController.getBySurveyId(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.966  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/add],methods=[POST]}" onto public com.iem.safety.iembackend.news.News com.iem.safety.iembackend.news.NewsController.add(com.iem.safety.iembackend.news.News)
+2018-08-04 11:34:06.967  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/del],methods=[DELETE]}" onto public void com.iem.safety.iembackend.news.NewsController.delete(java.lang.String)
+2018-08-04 11:34:06.967  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/getByCategory],methods=[GET]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.iem.safety.iembackend.news.NewsController.getByCategory(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String)
+2018-08-04 11:34:06.968  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/getById],methods=[GET]}" onto public com.iem.safety.iembackend.news.News com.iem.safety.iembackend.news.NewsController.getById(java.lang.String)
+2018-08-04 11:34:06.968  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/getByEIdAndType],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.news.News> com.iem.safety.iembackend.news.NewsController.getByEIdAndType(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.968  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/admin/getbyeidandc],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.news.News> com.iem.safety.iembackend.news.NewsController.getByCategoryEidNewType(java.lang.String,java.lang.String,java.lang.String)
+2018-08-04 11:34:06.969  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/normaladmin/su/add],methods=[POST]}" onto public com.iem.safety.iembackend.normaladmin.NormalAdmin com.iem.safety.iembackend.normaladmin.NormalAdminController.add(com.iem.safety.iembackend.normaladmin.NormalAdmin)
+2018-08-04 11:34:06.970  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/normaladmin/su/findbyeid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.normaladmin.NormalAdmin> com.iem.safety.iembackend.normaladmin.NormalAdminController.add(java.lang.String)
+2018-08-04 11:34:06.971  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/save],methods=[POST]}" onto public com.iem.safety.iembackend.safetyassess.Safetyassess com.iem.safety.iembackend.safetyassess.SafetyassessController.save(com.iem.safety.iembackend.safetyassess.Safetyassess)
+2018-08-04 11:34:06.972  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.safetyassess.SafetyassessController.delById(java.lang.String)
+2018-08-04 11:34:06.972  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/getbyuuid],methods=[GET]}" onto public com.iem.safety.iembackend.utils.Message com.iem.safety.iembackend.safetyassess.SafetyassessController.getByUuid(java.lang.String)
+2018-08-04 11:34:06.973  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/safetyassess/getbyowneridandeid],methods=[GET]}" onto public java.util.List<java.util.Map<java.lang.String, java.lang.String>> com.iem.safety.iembackend.safetyassess.SafetyassessController.getByUserId(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.975  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/saveall],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey> com.iem.safety.iembackend.singlesurvey.SinglesurveyController.saveAll(java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey>)
+2018-08-04 11:34:06.975  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/delbyid],methods=[POST]}" onto public void com.iem.safety.iembackend.singlesurvey.SinglesurveyController.delById(java.lang.String)
+2018-08-04 11:34:06.975  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/getbysurveyid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey> com.iem.safety.iembackend.singlesurvey.SinglesurveyController.getBySurveyId(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.976  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/singlesurvey/getbysurveyuuid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.singlesurvey.Singlesurvey> com.iem.safety.iembackend.singlesurvey.SinglesurveyController.getBySurveyUuid(java.lang.String,java.lang.String)
+2018-08-04 11:34:06.978  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/add],methods=[POST]}" onto public com.iem.safety.iembackend.structurepart.StructurePart com.iem.safety.iembackend.structurepart.StructurePartController.add(com.iem.safety.iembackend.structurepart.StructurePart)
+2018-08-04 11:34:06.979  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/findAll],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.findAll()
+2018-08-04 11:34:06.979  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/getSubPartByFid],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.getSubPartByFid(java.lang.String)
+2018-08-04 11:34:06.979  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/delRecursiveById],methods=[GET]}" onto public void com.iem.safety.iembackend.structurepart.StructurePartController.delRecursiveById(java.lang.String)
+2018-08-04 11:34:06.980  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/addMulti],methods=[POST]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.addMulti(java.util.Map<java.lang.String, java.lang.Object>)
+2018-08-04 11:34:06.980  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/getSubPartByAssessId],methods=[GET]}" onto public com.iem.safety.iembackend.utils.Message com.iem.safety.iembackend.structurepart.StructurePartController.getSubPartByAssessId(java.lang.String)
+2018-08-04 11:34:06.981  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructurePart/su/findAllByFatherId],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structurepart.StructurePart> com.iem.safety.iembackend.structurepart.StructurePartController.findAllRecursiveByFatherId(java.lang.String)
+2018-08-04 11:34:06.982  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/StructureType/findAll],methods=[GET]}" onto public java.util.List<com.iem.safety.iembackend.structuretype.StructureType> com.iem.safety.iembackend.structuretype.StructureTypeController.getByUuid()
+2018-08-04 11:34:06.984  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/login],methods=[POST]}" onto public com.iem.safety.iembackend.superadmin.SuperAdmin com.iem.safety.iembackend.superadmin.SuperAdminController.login(java.lang.String,long,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-08-04 11:34:06.987  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.home()
+2018-08-04 11:34:06.988  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.loginCustomer()
+2018-08-04 11:34:06.988  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/manage]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminManage(java.lang.String,org.springframework.ui.Model)
+2018-08-04 11:34:06.988  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/media]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminMedia()
+2018-08-04 11:34:06.988  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/data]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.customerData(java.lang.String,java.lang.String,org.springframework.ui.Model)
+2018-08-04 11:34:06.989  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginsu]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.loginSupper()
+2018-08-04 11:34:06.989  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/news/newsdetail]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.newsDetail(java.lang.String,org.springframework.ui.Model)
+2018-08-04 11:34:06.989  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginadmin]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.loginNormalAdmin()
+2018-08-04 11:34:06.990  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/customer]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.suCustomer()
+2018-08-04 11:34:06.990  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/StructureParts]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.suStructureParts(java.lang.String,org.springframework.ui.Model)
+2018-08-04 11:34:06.990  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/information]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminInfo()
+2018-08-04 11:34:06.990  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/data]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.adminData()
+2018-08-04 11:34:06.990  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/su/manage]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.suManage()
+2018-08-04 11:34:06.991  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/customer/manage]}" onto java.lang.String com.iem.safety.iembackend.web.WebController.customerSelf(java.lang.String,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest)
+2018-08-04 11:34:06.998  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-08-04 11:34:07.000  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-08-04 11:34:07.069  INFO 12952 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-04 11:34:07.211  INFO 12952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6ad58d4b: startup date [Sat Aug 04 11:33:58 CST 2018]; root of context hierarchy
+2018-08-04 11:34:07.973  INFO 12952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-08-04 11:34:08.047  INFO 12952 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-08-04 11:34:08.138  INFO 12952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2018-08-04 11:34:08.144  INFO 12952 --- [restartedMain] c.i.s.iembackend.IembackendApplication   : Started IembackendApplication in 11.205 seconds (JVM running for 13.571)
+2018-08-04 11:36:44.179  INFO 12952 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-08-04 11:36:44.180  INFO 12952 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-08-04 11:36:44.216  INFO 12952 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms
+2018-08-04 11:36:44.252  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:44.263  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:44.281  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:44.283  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:51.188  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:51.188  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:51.196  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:51.196  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:51.691  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:51.691  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:51.698  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:51.699  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:51.890  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:51.890  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:51.898  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:51.899  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:52.066  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:52.066  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:52.076  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:52.076  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:52.236  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:52.236  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:52.243  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:52.244  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:52.412  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:52.413  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:52.420  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:52.421  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:52.580  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:52.580  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:52.588  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:52.588  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:52.765  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:52.765  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:52.775  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:52.775  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:36:52.914  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:36:52.915  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:36:52.925  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/login
+2018-08-04 11:36:52.925  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:37:01.310  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/customer/login
+2018-08-04 11:37:01.310  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:37:01.379  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.customer.CustomerService         : 小程序登录code: 081OEBJ0207g8012PkI02gEJJ02OEBJG
+2018-08-04 11:37:02.510  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.customer.CustomerService         : {"session_key":"nx3jrCDqcmbJEMRHwL\/oZA==","openid":"o4scb5Gowjr4SjPTc2VfIWEnOEmk"}
+2018-08-04 11:37:02.793  INFO 12952 --- [http-nio-80-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:40}] to localhost:27017
+2018-08-04 11:37:03.040  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/earthquake/findallandgroup
+2018-08-04 11:37:03.041  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:37:04.653  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:37:04.653  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:37:22.132  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:37:22.141  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:37:22.144  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:37:29.845  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:37:29.845  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:38:26.619  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:39:19.343  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:39:19.373  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:39:53.630  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:39:53.631  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:39:56.349  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:39:58.136  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:39:58.174  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:40:11.577  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:40:11.577  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:40:11.577  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:40:19.430  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:40:44.191  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:40:59.837  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/group/join
+2018-08-04 11:40:59.838  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:41:07.207  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:41:07.207  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:41:07.208  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:41:30.749  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:41:38.538  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:41:39.991  INFO 12952 --- [http-nio-80-exec-8] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:42:23.134  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:42:23.134  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:42:23.135  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:42:23.138  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:42:23.140  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:42:23.143  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:42:42.043  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:42:42.043  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:42:42.044  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:42:42.047  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:42:42.050  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:42:42.053  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:42:43.109  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:42:43.109  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:42:43.110  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:42:43.113  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:42:43.117  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:42:43.119  INFO 12952 --- [http-nio-80-exec-1] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:42:48.633  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 11:42:48.633  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:43:26.785  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getbyoidandeid
+2018-08-04 11:43:26.786  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:44:11.135  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/saveall
+2018-08-04 11:44:11.136  INFO 12952 --- [http-nio-80-exec-4] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:44:23.093  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:44:23.093  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:44:23.094  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:44:23.097  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:44:23.099  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:44:23.102  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:44:48.221  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:44:48.222  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:44:48.222  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:44:48.225  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:44:48.227  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:44:48.230  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:44:53.587  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : ip:0:0:0:0:0:0:0:1  uri:/intensitysurvey/getByEidForMap
+2018-08-04 11:44:53.587  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.utils.SessionInterceptor         : normal权限通过
+2018-08-04 11:44:53.587  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b0b797fd97d898a7dbbf4d0
+2018-08-04 11:44:53.590  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b023013f922c40fc819088e
+2018-08-04 11:44:53.592  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b31e0b8f922c410cc81ffb5
+2018-08-04 11:44:53.594  INFO 12952 --- [http-nio-80-exec-7] c.i.s.i.i.IntensitysurveyService         : 5b6448e17fa6c927a051f3dd
+2018-08-04 11:47:11.216  WARN 12952 --- [http-nio-80-exec-9] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/pagead/js/adsbygoogle.js] in DispatcherServlet with name 'dispatcherServlet'
+2018-08-04 11:47:11.227  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/error
+2018-08-04 11:47:11.228  INFO 12952 --- [http-nio-80-exec-9] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:47:11.268  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/login
+2018-08-04 11:47:11.269  INFO 12952 --- [http-nio-80-exec-10] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:48:37.472  WARN 12952 --- [http-nio-80-exec-2] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/pagead/js/adsbygoogle.js] in DispatcherServlet with name 'dispatcherServlet'
+2018-08-04 11:48:37.474  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/error
+2018-08-04 11:48:37.474  INFO 12952 --- [http-nio-80-exec-2] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:48:37.524  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/login
+2018-08-04 11:48:37.524  INFO 12952 --- [http-nio-80-exec-3] c.i.s.i.utils.SessionInterceptor         : 登录页面
+2018-08-04 11:49:38.803  WARN 12952 --- [http-nio-80-exec-5] o.s.web.servlet.PageNotFound             : No mapping found for HTTP request with URI [/pagead/js/adsbygoogle.js] in DispatcherServlet with name 'dispatcherServlet'
+2018-08-04 11:49:38.804  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/error
+2018-08-04 11:49:38.805  INFO 12952 --- [http-nio-80-exec-5] c.i.s.i.utils.SessionInterceptor         : 未登录
+2018-08-04 11:49:38.838  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : ip:127.0.0.1  uri:/login
+2018-08-04 11:49:38.839  INFO 12952 --- [http-nio-80-exec-6] c.i.s.i.utils.SessionInterceptor         : 登录页面

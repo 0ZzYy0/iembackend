@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <link href="/static/wangeditor/wangEditor.min.css" rel="stylesheet"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <script type="text/javascript" src="/static/wangeditor/wangEditor.min.js"></script>
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title>信息管理</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top " id="main_nav">
+    <a class="navbar-brand" v-bind:href="['/admin/manage?eid=']+eid"><span id="eqname"></span>媒体文件后台管理</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" v-bind:href="['/admin/manage?eid=']+eid">主页<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/data">数据管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/admin/information">信息公告</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">图片视频音频</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                   href="#list-home" role="tab" aria-controls="home">图片</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                   href="#list-profile" role="tab" aria-controls="profile">视频</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                   href="#list-messages" role="tab" aria-controls="messages">音频</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div id="viewImages">
+                        <div class="row">
+                            <div class="col">
+                                <a href="javascript:void(0)" @click="view">查看</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div class="d-flex flex-wrap">
+                                <div class="p-2" v-for="(item,index) in medias">
+                                    <figure class="figure" style="width: 300px;height: 300px;">
+                                        <img v-bind:src="item.uri" class="figure-img img-fluid rounded" alt="">
+                                        <figcaption class="figure-caption text-center">{{item.usage}}</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    <div id="viewVideos">
+                        <div class="row">
+                            <div class="col">
+                                <a href="javascript:void(0)" @click="view">查看</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div class="d-flex flex-wrap">
+                                <div class="p-2" v-for="(item,index) in medias">
+                                    <figure class="figure" style="width: 300px;height: 300px;">
+
+                                        <video width="320" height="240" controls>
+                                            <source v-bind:src="item.uri" type="video/mp4">
+                                            您的浏览器不支持 HTML5 video 标签。
+                                        </video>
+                                        <figcaption class="figure-caption text-center">{{item.usage}}</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    <div id="viewAudios">
+                        <div class="row">
+                            <div class="col">
+                                <a href="javascript:void(0)" @click="view">查看</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div class="d-flex flex-wrap">
+                                <div class="p-2" v-for="(item,index) in medias">
+                                    <figure class="figure" style="width: 300px;height: 300px;">
+                                        <audio controls>
+                                            <source v-bind:src="item.uri" type="audio/mpeg">
+                                            您的浏览器不支持 audio 元素。
+                                        </audio>
+                                        <figcaption class="figure-caption text-center">{{item.usage}}</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    其他
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab1" role="tablist">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="msgmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">提示</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{msg}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var earthquake = JSON.parse(sessionStorage.getItem("earthquake"));
+    console.log(earthquake);
+    $("#eqname").text(earthquake.name);
+
+
+    var SUCCESSMSG = "操作成功！";
+    var FAILMSG = "操作失败，请稍后重试！";
+
+    var msgmodal = new Vue({
+        el: "#msgmodal",
+        data: {
+            msg: ""
+        }
+    });
+
+    var main_nav = new Vue({
+        el: "#main_nav",
+        data: {
+            eid: earthquake.id
+        }
+    });
+    var viewImages = new Vue({
+        el: "#viewImages",
+        data: {
+            typeId: 1,
+            eid: earthquake.id,
+            medias: []
+        },
+        methods: {
+            view: function (e) {
+                let that = this;
+                let resp = getFilesByTypeIdAndEQId(that.typeId, that.eid);
+                resp.then(function (response) {
+                    console.log(response.data);
+                    that.medias = response.data.reverse();
+                })
+            }
+        }
+    });
+
+    var viewVideos = new Vue({
+        el: "#viewVideos",
+        data: {
+            typeId: 2,
+            eid: earthquake.id,
+            medias: []
+        },
+        methods: {
+            view: function (e) {
+                let that = this;
+                let resp = getFilesByTypeIdAndEQId(that.typeId, that.eid);
+                resp.then(function (response) {
+                    console.log(response.data);
+                    that.medias = response.data.reverse();
+                })
+            }
+        }
+    });
+    var viewAudios = new Vue({
+        el: "#viewAudios",
+        data: {
+            typeId: 3,
+            eid: earthquake.id,
+            medias: []
+        },
+        methods: {
+            view: function (e) {
+                let that = this;
+                let resp = getFilesByTypeIdAndEQId(that.typeId, that.eid);
+                resp.then(function (response) {
+                    console.log(response.data);
+                    that.medias = response.data.reverse();
+                })
+            }
+        }
+    });
+
+    function getFilesByTypeIdAndEQId(typeId, eqId) {
+        return axios.get('/fileentity/admin/getByTypeIdAndEQId?typeId=' + typeId + "&eqId=" + eqId);
+    }
+
+</script>
+
+</body>
+</html>

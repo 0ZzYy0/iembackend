@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <link href="/static/wangeditor/wangEditor.min.css" rel="stylesheet"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <script type="text/javascript" src="/static/wangeditor/wangEditor.min.js"></script>
+    <script src="/static/js/util.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <title>信息管理</title>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top " id="main_nav">
+    <a class="navbar-brand" v-bind:href="['/admin/manage?eid=']+eid"><span id="eqname"></span>后台管理</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" v-bind:href="['/admin/manage?eid=']+eid">主页<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/data">数据管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">信息公告</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/admin/media">图片视频音频</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="main_content">
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                   href="#list-home" role="tab" aria-controls="home">查看公告</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                   href="#list-profile" role="tab" aria-controls="profile">发布公告</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                   href="#list-messages" role="tab" aria-controls="messages">共享信息</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
+
+            <div class="tab-content" id="nav-tabContent">
+
+
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div id="viewsysinfo">
+                        <div class="custom-control custom-radio custom-control-inline"
+                             v-for="(item,index) in typeList">
+                            <input type="radio" v-bind:id="['typeList']+index" name="typeListInline"
+                                   v-bind:value="item" @change="typeradiochange" class="custom-control-input">
+                            <label class="custom-control-label" v-bind:for="['typeList']+index">{{item}}</label>
+                        </div>
+                        <hr>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" v-for="(item,index) in infoList">
+                                    <div class="row">
+
+                                        <div class="col-8 text-truncate">
+                                            [{{item.newsType}}]<a target="_blank"
+                                                                  v-bind:href="['/news/newsdetail?id=']+item.id"
+                                                                  style="padding-left: 5px;">{{item.newsTitle}}
+                                            <!--<span class="d-inline-block text-truncate" style="max-width: 450px;">{{item.newsTitle}}</span>-->
+                                        </a>
+                                        </div>
+                                        <div class="col-3">
+                                            {{item.authorName}}<span
+                                                style="padding-left: 10px;">{{item.dateTime}}</span>
+                                        </div>
+                                        <div class="col-1"><a style="color: red" href="javascript:void(0)"
+                                                              @click="del(index)">删除</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+
+                    <div id="addsysinfo">
+
+                        <div class="custom-control custom-radio custom-control-inline"
+                             v-for="(item,index) in typeList">
+                            <input type="radio" v-bind:id="['addtypeList']+index" name="addtypeListInline"
+                                   v-bind:value="item" @change="typeradiochange" class="custom-control-input">
+                            <label class="custom-control-label" v-bind:for="['addtypeList']+index">{{item}}</label>
+                        </div>
+                        <hr>
+
+                        <div v-show="editorShow">
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">标题</label>
+                                <div class="col-sm-10">
+                                    <input type="text" v-model="news.newsTitle" class="form-control" id="colFormLabel"
+                                           placeholder="标题">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel1" class="col-sm-2 col-form-label">类型</label>
+                                <div class="col-sm-10">
+                                    <input disabled type="text" v-model="news.newsType" class="form-control"
+                                           id="colFormLabel1"
+                                           placeholder="类型">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel2" class="col-sm-2 col-form-label">地点</label>
+                                <div class="col-sm-10">
+                                    <input type="text" v-model="news.address" class="form-control" id="colFormLabel2"
+                                           placeholder="地点">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel3" class="col-sm-2 col-form-label">经度</label>
+                                <div class="col-sm-10">
+                                    <input type="text" v-model="news.lng" class="form-control" id="colFormLabel3"
+                                           placeholder="经度">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel4" class="col-sm-2 col-form-label">纬度</label>
+                                <div class="col-sm-10">
+                                    <input type="text" v-model="news.lat" class="form-control" id="colFormLabel4"
+                                           placeholder="纬度">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel5" class="col-sm-2 col-form-label">作者</label>
+                                <div class="col-sm-10">
+                                    <input type="text" v-model="news.authorName" class="form-control" id="colFormLabel5"
+                                           placeholder="作者">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row inputrow">
+                                <label for="colFormLabel6" class="col-sm-2 col-form-label">部门</label>
+                                <div class="col-sm-10">
+                                    <input type="text" v-model="news.authorDepartment" class="form-control"
+                                           id="colFormLabel6"
+                                           placeholder="部门">
+                                </div>
+                            </div>
+                            <hr>
+                            <div ref="editor_toolbar" class="toolbar" style="border:2px solid darkgray;">
+                            </div>
+                            <div style="padding: 5px 0; color: grey">在下面框中输入内容</div>
+                            <div ref="editor_text" style="height: 400px;border:1px solid darkgray;">
+                                <!--可使用 min-height 实现编辑区域自动增加高度-->
+
+                            </div>
+                            <hr>
+                            <div>
+                                <button type="button" @click="savenews" class="btn btn-primary btn-lg btn-block">发布公告
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    <div id="viewshareinfo">
+                        <div class="custom-control custom-radio custom-control-inline"
+                             v-for="(item,index) in typeList">
+                            <input type="radio" v-bind:id="['stypeList']+index" name="stypeListInline"
+                                   v-bind:value="item" @change="typeradiochange" class="custom-control-input">
+                            <label class="custom-control-label" v-bind:for="['stypeList']+index">{{item}}</label>
+                        </div>
+                        <hr>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" v-for="(item,index) in infoList">
+                                    <div class="row">
+
+                                        <div class="col-8 text-truncate">
+                                            [{{item.newsType}}]<a target="_blank"
+                                                                  v-bind:href="['/news/newsdetail?id=']+item.id"
+                                                                  style="padding-left: 5px;">{{item.newsTitle}}
+                                            <!--<span class="d-inline-block text-truncate" style="max-width: 450px;">{{item.newsTitle}}</span>-->
+                                        </a>
+                                        </div>
+                                        <div class="col-3">
+                                            {{item.authorName}}<span
+                                                style="padding-left: 10px;">{{item.dateTime}}</span>
+                                        </div>
+                                        <div class="col-1"><a style="color: red" href="javascript:void(0)"
+                                                              @click="del(index)">删除</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    4...
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-12 col-md-2">
+            <div class="list-group" id="list-tab1" role="tablist">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="msgmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">提示</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{msg}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var earthquake = JSON.parse(sessionStorage.getItem("earthquake"));
+    var infoTypeList = ["食宿", "交通", "伤亡", "指挥部信息", "其他"];
+    console.log(earthquake);
+    $("#eqname").text(earthquake.name);
+
+
+    var SUCCESSMSG = "操作成功！";
+    var FAILMSG = "操作失败，请稍后重试！";
+
+    var msgmodal = new Vue({
+        el: "#msgmodal",
+        data: {
+            msg: ""
+        }
+    });
+
+    var main_nav = new Vue({
+        el: "#main_nav",
+        data: {
+            eid: earthquake.id
+        }
+    })
+    var viewsysinfo = new Vue({
+        el: "#viewsysinfo",
+        data: {
+            typeList: infoTypeList,
+            infoList: [],
+            nty: "",
+            category: "COMMAND"
+        },
+
+        methods: {
+            del: function (index) {
+                console.log(index);
+                axios({
+                    method: 'delete',
+                    url: '/news/del?id=' + viewsysinfo.infoList[index].id
+                }).then(function (response) {
+                    if (response.data) {
+                        alert("删除失败")
+                    } else {
+                        viewsysinfo.infoList.splice(index, 1);
+                        msgmodal.msg = SUCCESSMSG;
+                        $('#msgmodal').modal('show');
+                        setTimeout(function () {
+                            $('#msgmodal').modal('hide');
+                        }, 1500)
+                    }
+                }).catch(function (reason) {
+                    msgmodal.msg = FAILMSG;
+                    $('#msgmodal').modal('show');
+                    setTimeout(function () {
+                        $('#msgmodal').modal('hide');
+                    }, 1500)
+                })
+            },
+            typeradiochange: function (e) {
+                console.log(e);
+                this.nty = e.target.value;
+                console.log(this.nty);
+                let resp = getInfoByEidAndCategory(this.category, this.nty);
+                resp.then(function (response) {
+                    console.log(response.data);
+                    viewsysinfo.infoList = response.data.reverse();
+
+                })
+            }
+        }
+    });
+
+
+    var addsysinfo = new Vue({
+        el: "#addsysinfo",
+        data: {
+            typeList: infoTypeList,
+            infoList: [],
+            nty: "",
+            editorContent: '',
+            editorShow: false,
+            category: "COMMAND",
+            news: {
+                authorName: "指挥部",
+                dateTime: formatTime(new Date()),
+                newsType: ""
+            }
+        }, methods: {
+            typeradiochange: function (e) {
+                console.log(e);
+                this.nty = e.target.value;
+                console.log(this.category, this.nty);
+                addsysinfo.news.newsType = this.nty;
+                addsysinfo.editorShow = true;
+            },
+            savenews: function (e) {
+                console.log(addsysinfo.editorContent);
+                var news = addsysinfo.news;
+                news.dateTime = formatTime(new Date());
+                news.earthquakeId = earthquake.id;
+                news.newsContent = addsysinfo.editorContent;
+                news.authorId = "";
+                news.authorGroup = "指挥部";
+                news.newsCategory = "COMMAND";
+
+                console.log(news);
+                axios({
+                    method: 'post',
+                    url: '/news/add',
+                    data: news
+                }).then(function (response) {
+                    console.log(response.data);
+                    msgmodal.msg = SUCCESSMSG;
+                    $('#msgmodal').modal('show');
+                    setTimeout(function () {
+                        $('#msgmodal').modal('hide');
+                    }, 1500)
+                }).catch(function (reason) {
+                    msgmodal.msg = FAILMSG;
+                    $('#msgmodal').modal('show');
+                    setTimeout(function () {
+                        $('#msgmodal').modal('hide');
+                    }, 1500)
+                })
+            }
+        },
+        mounted: function () {
+
+            var E = window.wangEditor;
+            var editor = new E(this.$refs.editor_toolbar, this.$refs.editor_text);
+            editor.customConfig.uploadImgServer = '/fileentity/admin/upload'; // 上传图片到服务器
+            // 自定义菜单配置
+            editor.customConfig.menus = [
+                'head',  // 标题
+                'bold',  // 粗体
+                'fontSize',  // 字号
+                'fontName',  // 字体
+                'italic',  // 斜体
+                'underline',  // 下划线
+                'strikeThrough',  // 删除线
+                'foreColor',  // 文字颜色
+                'backColor',  // 背景颜色
+                // 'link',  // 插入链接
+                'list',  // 列表
+                'justify',  // 对齐方式
+                'quote',  // 引用
+                // 'emoticon',  // 表情
+                'image',  // 插入图片
+                // 'table',  // 表格
+                // 'video',  // 插入视频
+                // 'code',  // 插入代码
+                'undo',  // 撤销
+                'redo'  // 重复
+            ];
+            editor.customConfig.onchange = (html) => {
+                this.editorContent = html
+            }
+            editor.customConfig.uploadImgParams = {
+                // 如果版本 <=v3.1.0 ，属性值会自动进行 encode ，此处无需 encode
+                // 如果版本 >=v3.1.1 ，属性值不会自动 encode ，如有需要自己手动 encode
+                id: earthquake.id,
+
+            };
+            editor.create();
+
+        }
+    });
+
+    var viewshareinfo = new Vue({
+        el: "#viewshareinfo",
+        data: {
+            typeList: infoTypeList,
+            infoList: [],
+            nty: "",
+            category: "NORMAL"
+        }, methods: {
+            del: function (index) {
+                console.log(index);
+                axios({
+                    method: 'delete',
+                    url: '/news/del?id=' + viewshareinfo.infoList[index].id
+                }).then(function (response) {
+                    if (response.data) {
+                        msgmodal.msg = FAILMSG;
+                        $('#msgmodal').modal('show');
+                        setTimeout(function () {
+                            $('#msgmodal').modal('hide');
+                        }, 1500)
+                    } else {
+                        viewshareinfo.infoList.splice(index, 1);
+                        msgmodal.msg = SUCCESSMSG;
+                        $('#msgmodal').modal('show');
+                        setTimeout(function () {
+                            $('#msgmodal').modal('hide');
+                        }, 1500)
+                    }
+                }).catch(function (reason) {
+
+                })
+            },
+            typeradiochange: function (e) {
+                console.log(e);
+                this.nty = e.target.value;
+                console.log(this.nty);
+
+                //this.infoList=["食宿", "交通", "伤亡", "指挥部信息", "其他"];
+                let resp = getInfoByEidAndCategory(this.category, this.nty);
+                resp.then(function (response) {
+
+                    viewshareinfo.infoList = response.data.reverse();
+                    console.log(viewshareinfo.infoList);
+                })
+
+            }
+        }
+    });
+
+
+    function getInfoByEidAndCategory(newsCategory, nty) {
+        //
+        return axios.get('/news/admin/getbyeidandc?eid=' + earthquake.id + "&nty=" + nty + "&category=" + newsCategory);
+    }
+
+</script>
+
+</body>
+</html>

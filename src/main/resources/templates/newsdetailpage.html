@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8"/>
+    <meta id="author" name="孟琦Poet" content="http://www.mengqipoet.cn"/>
+    <title th:text="${news.newsTitle}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+
+        #newsel {
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container" id="newsel">
+    <h2>{{news.newsTitle}}</h2>
+    <hr>
+    <div>{{news.dateTime}}</div>
+    <div>作者：{{news.authorName}}</div>
+    <div>小组：{{news.authorGroup}}</div>
+    <div>纬度：{{news.lat}}</div>
+    <div>经度：{{news.lng}}</div>
+    <div>地点：{{news.address}}</div>
+    <hr>
+    <div id="ncontent"></div>
+</div>
+</body>
+<script th:inline="javascript">
+    var message = [[${news}]];
+    console.log(message);
+    var newsel = new Vue({
+        el: "#newsel",
+        data: {news: message}
+    });
+    $("#ncontent").html(message.newsContent);
+</script>
+</html>
