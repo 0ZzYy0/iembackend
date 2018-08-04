@@ -11,12 +11,12 @@ public interface GeologyDisasterRepository extends MongoRepository<GeologyDisast
 
     void deleteGeologyDisasterById(String id);
 
-    List<GeologyDisaster> findByOwnerIdAndTimestampGreaterThan(String ownerId, long timestamp);
+    //List<GeologyDisaster> findByOwnerIdAndTimestampGreaterThan(String ownerId, long timestamp);
 
-    List<GeologyDisaster> findByOwnerIdAndEarthquakeId(String ownerId, String earthquakeId);
+   //List<GeologyDisaster> findByOwnerIdAndEarthquakeId(String ownerId, String earthquakeId);
 
-    List<GeologyDisaster> findGeologyDisasterByEarthquakeIdAndOwnerIdAndStatus(String earthquakeId, String customerId, String status);
+    //List<GeologyDisaster> findGeologyDisasterByEarthquakeIdAndOwnerIdAndStatus(String earthquakeId, String customerId, String status);
 
-    List<GeologyDisaster> findGeologyDisasterByEarthquakeIdAndStatus(String earthquakeId, String status);
+    //List<GeologyDisaster> findGeologyDisasterByEarthquakeIdAndStatus(String earthquakeId, String status);
 
 }
