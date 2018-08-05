@@ -126,4 +126,21 @@ public class FileEntity {
     public void setSize(long size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return "FileEntity{" +
+                "id='" + id + '\'' +
+                ", host='" + host + '\'' +
+                ", size=" + size +
+                ", uri='" + uri + '\'' +
+                ", name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                ", type='" + type + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", eqId='" + eqId + '\'' +
+                ", typeId=" + typeId +
+                ", usage='" + usage + '\'' +
+                '}';
+    }
 }

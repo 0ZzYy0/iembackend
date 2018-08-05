@@ -3,6 +3,7 @@ package com.iem.safety.iembackend.geologydisaster;
 import com.iem.safety.iembackend.fileEntity.FileEntity;
 import org.springframework.data.annotation.Id;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class GeologyDisaster {
 
     private String intensityIndex;
 
-    private long time;
+    private String time;
 
     private String mark;
 
@@ -58,49 +59,56 @@ public class GeologyDisaster {
     //地震id
     private String earthquakeId;
 
+    private String size;
+
+    private String status;
+
     private String fileType = "image";
 
     private List<String> datumArrayImages;
     private List<String> datumArrayVideos;
     private List<String> datumArrayAudios;
 
-    private List<FileEntity> datumArrayImageList;
-    private List<FileEntity> datumArrayVideoList;
-    private List<FileEntity> datumArrayAudioList;
+    private List<FileEntity> datumArrayImagesData;
+    private List<FileEntity> datumArrayVideosData;
+    private List<FileEntity> datumArrayAudiosData;
 
     private List<String> sdosgImages;
     private List<String> sdosgVideos;
     private List<String> sdosgAudios;
 
-    private List<FileEntity> sdosgImageList;
-    private List<FileEntity> sdosgVideoList;
-    private List<FileEntity> sdosgAudioList;
+    private List<FileEntity> sdosgImagesData;
+    private List<FileEntity> sdosgVideosData;
+    private List<FileEntity> sdosgAudiosData;
 
     private List<String> pictureArrayImages;
     private List<String> pictureArrayVideos;
     private List<String> pictureArrayAudios;
 
-    private List<FileEntity> pictureArrayImageList;
-    private List<FileEntity> pictureArrayVideoList;
-    private List<FileEntity> pictureArrayAudioList;
+    private List<FileEntity> pictureArrayImagesData;
+    private List<FileEntity> pictureArrayVideosData;
+    private List<FileEntity> pictureArrayAudiosData;
 
     private List<String> fileArrayImages;
     private List<String> fileArrayVideos;
     private List<String> fileArrayAudios;
 
-    private List<FileEntity> fileArrayImageList;
-    private List<FileEntity> fileArrayVideoList;
-    private List<FileEntity> fileArrayAudioList;
+    private List<FileEntity> fileArrayImagesData;
+    private List<FileEntity> fileArrayVideosData;
+    private List<FileEntity> fileArrayAudiosData;
 
     private List<String> sdopasImages;
     private List<String> sdopasVideos;
     private List<String> sdopasAudios;
 
-    private List<FileEntity> sdopasImageList;
-    private List<FileEntity> sdopasVideoList;
-    private List<FileEntity> sdopasAudioList;
+    private List<FileEntity> sdopasImagesData;
+    private List<FileEntity> sdopasVideosData;
+    private List<FileEntity> sdopasAudiosData;
 
-    public GeologyDisaster(String id, String name, String lat, String lng, String intensityIndex, long time, String mark, String type, String shape, String wonaghdmic, String adderss, String lsc, String hc, String aodm, String pooeoi, String ceoi, String ownerId, String earthquakeId, String fileType, List<String> datumArrayImages, List<String> datumArrayVideos, List<String> datumArrayAudios, List<FileEntity> datumArrayImageList, List<FileEntity> datumArrayVideoList, List<FileEntity> datumArrayAudioList, List<String> sdosgImages, List<String> sdosgVideos, List<String> sdosgAudios, List<FileEntity> sdosgImageList, List<FileEntity> sdosgVideoList, List<FileEntity> sdosgAudioList, List<String> pictureArrayImages, List<String> pictureArrayVideos, List<String> pictureArrayAudios, List<FileEntity> pictureArrayImageList, List<FileEntity> pictureArrayVideoList, List<FileEntity> pictureArrayAudioList, List<String> fileArrayImages, List<String> fileArrayVideos, List<String> fileArrayAudios, List<FileEntity> fileArrayImageList, List<FileEntity> fileArrayVideoList, List<FileEntity> fileArrayAudioList, List<String> sdopasImages, List<String> sdopasVideos, List<String> sdopasAudios, List<FileEntity> sdopasImageList, List<FileEntity> sdopasVideoList, List<FileEntity> sdopasAudioList) {
+    public GeologyDisaster() {
+    }
+
+    public GeologyDisaster(String id, String name, String lat, String lng, String intensityIndex, String time, String mark, String type, String shape, String wonaghdmic, String adderss, String lsc, String hc, String aodm, String pooeoi, String ceoi, String ownerId, String earthquakeId, String size, String status, String fileType, List<String> datumArrayImages, List<String> datumArrayVideos, List<String> datumArrayAudios, List<FileEntity> datumArrayImagesData, List<FileEntity> datumArrayVideosData, List<FileEntity> datumArrayAudiosData, List<String> sdosgImages, List<String> sdosgVideos, List<String> sdosgAudios, List<FileEntity> sdosgImagesData, List<FileEntity> sdosgVideosData, List<FileEntity> sdosgAudiosData, List<String> pictureArrayImages, List<String> pictureArrayVideos, List<String> pictureArrayAudios, List<FileEntity> pictureArrayImagesData, List<FileEntity> pictureArrayVideosData, List<FileEntity> pictureArrayAudiosData, List<String> fileArrayImages, List<String> fileArrayVideos, List<String> fileArrayAudios, List<FileEntity> fileArrayImagesData, List<FileEntity> fileArrayVideosData, List<FileEntity> fileArrayAudiosData, List<String> sdopasImages, List<String> sdopasVideos, List<String> sdopasAudios, List<FileEntity> sdopasImagesData, List<FileEntity> sdopasVideosData, List<FileEntity> sdopasAudiosData) {
         this.id = id;
         this.name = name;
         this.lat = lat;
@@ -119,37 +127,39 @@ public class GeologyDisaster {
         this.ceoi = ceoi;
         this.ownerId = ownerId;
         this.earthquakeId = earthquakeId;
+        this.size = size;
+        this.status = status;
         this.fileType = fileType;
         this.datumArrayImages = datumArrayImages;
         this.datumArrayVideos = datumArrayVideos;
         this.datumArrayAudios = datumArrayAudios;
-        this.datumArrayImageList = datumArrayImageList;
-        this.datumArrayVideoList = datumArrayVideoList;
-        this.datumArrayAudioList = datumArrayAudioList;
+        this.datumArrayImagesData = datumArrayImagesData;
+        this.datumArrayVideosData = datumArrayVideosData;
+        this.datumArrayAudiosData = datumArrayAudiosData;
         this.sdosgImages = sdosgImages;
         this.sdosgVideos = sdosgVideos;
         this.sdosgAudios = sdosgAudios;
-        this.sdosgImageList = sdosgImageList;
-        this.sdosgVideoList = sdosgVideoList;
-        this.sdosgAudioList = sdosgAudioList;
+        this.sdosgImagesData = sdosgImagesData;
+        this.sdosgVideosData = sdosgVideosData;
+        this.sdosgAudiosData = sdosgAudiosData;
         this.pictureArrayImages = pictureArrayImages;
         this.pictureArrayVideos = pictureArrayVideos;
         this.pictureArrayAudios = pictureArrayAudios;
-        this.pictureArrayImageList = pictureArrayImageList;
-        this.pictureArrayVideoList = pictureArrayVideoList;
-        this.pictureArrayAudioList = pictureArrayAudioList;
+        this.pictureArrayImagesData = pictureArrayImagesData;
+        this.pictureArrayVideosData = pictureArrayVideosData;
+        this.pictureArrayAudiosData = pictureArrayAudiosData;
         this.fileArrayImages = fileArrayImages;
         this.fileArrayVideos = fileArrayVideos;
         this.fileArrayAudios = fileArrayAudios;
-        this.fileArrayImageList = fileArrayImageList;
-        this.fileArrayVideoList = fileArrayVideoList;
-        this.fileArrayAudioList = fileArrayAudioList;
+        this.fileArrayImagesData = fileArrayImagesData;
+        this.fileArrayVideosData = fileArrayVideosData;
+        this.fileArrayAudiosData = fileArrayAudiosData;
         this.sdopasImages = sdopasImages;
         this.sdopasVideos = sdopasVideos;
         this.sdopasAudios = sdopasAudios;
-        this.sdopasImageList = sdopasImageList;
-        this.sdopasVideoList = sdopasVideoList;
-        this.sdopasAudioList = sdopasAudioList;
+        this.sdopasImagesData = sdopasImagesData;
+        this.sdopasVideosData = sdopasVideosData;
+        this.sdopasAudiosData = sdopasAudiosData;
     }
 
     public String getId() {
@@ -192,11 +202,11 @@ public class GeologyDisaster {
         this.intensityIndex = intensityIndex;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -296,6 +306,22 @@ public class GeologyDisaster {
         this.earthquakeId = earthquakeId;
     }
 
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getFileType() {
         return fileType;
     }
@@ -328,28 +354,28 @@ public class GeologyDisaster {
         this.datumArrayAudios = datumArrayAudios;
     }
 
-    public List<FileEntity> getDatumArrayImageList() {
-        return datumArrayImageList;
+    public List<FileEntity> getDatumArrayImagesData() {
+        return datumArrayImagesData;
     }
 
-    public void setDatumArrayImageList(List<FileEntity> datumArrayImageList) {
-        this.datumArrayImageList = datumArrayImageList;
+    public void setDatumArrayImagesData(List<FileEntity> datumArrayImagesData) {
+        this.datumArrayImagesData = datumArrayImagesData;
     }
 
-    public List<FileEntity> getDatumArrayVideoList() {
-        return datumArrayVideoList;
+    public List<FileEntity> getDatumArrayVideosData() {
+        return datumArrayVideosData;
     }
 
-    public void setDatumArrayVideoList(List<FileEntity> datumArrayVideoList) {
-        this.datumArrayVideoList = datumArrayVideoList;
+    public void setDatumArrayVideosData(List<FileEntity> datumArrayVideosData) {
+        this.datumArrayVideosData = datumArrayVideosData;
     }
 
-    public List<FileEntity> getDatumArrayAudioList() {
-        return datumArrayAudioList;
+    public List<FileEntity> getDatumArrayAudiosData() {
+        return datumArrayAudiosData;
     }
 
-    public void setDatumArrayAudioList(List<FileEntity> datumArrayAudioList) {
-        this.datumArrayAudioList = datumArrayAudioList;
+    public void setDatumArrayAudiosData(List<FileEntity> datumArrayAudiosData) {
+        this.datumArrayAudiosData = datumArrayAudiosData;
     }
 
     public List<String> getSdosgImages() {
@@ -376,28 +402,28 @@ public class GeologyDisaster {
         this.sdosgAudios = sdosgAudios;
     }
 
-    public List<FileEntity> getSdosgImageList() {
-        return sdosgImageList;
+    public List<FileEntity> getSdosgImagesData() {
+        return sdosgImagesData;
     }
 
-    public void setSdosgImageList(List<FileEntity> sdosgImageList) {
-        this.sdosgImageList = sdosgImageList;
+    public void setSdosgImagesData(List<FileEntity> sdosgImagesData) {
+        this.sdosgImagesData = sdosgImagesData;
     }
 
-    public List<FileEntity> getSdosgVideoList() {
-        return sdosgVideoList;
+    public List<FileEntity> getSdosgVideosData() {
+        return sdosgVideosData;
     }
 
-    public void setSdosgVideoList(List<FileEntity> sdosgVideoList) {
-        this.sdosgVideoList = sdosgVideoList;
+    public void setSdosgVideosData(List<FileEntity> sdosgVideosData) {
+        this.sdosgVideosData = sdosgVideosData;
     }
 
-    public List<FileEntity> getSdosgAudioList() {
-        return sdosgAudioList;
+    public List<FileEntity> getSdosgAudiosData() {
+        return sdosgAudiosData;
     }
 
-    public void setSdosgAudioList(List<FileEntity> sdosgAudioList) {
-        this.sdosgAudioList = sdosgAudioList;
+    public void setSdosgAudiosData(List<FileEntity> sdosgAudiosData) {
+        this.sdosgAudiosData = sdosgAudiosData;
     }
 
     public List<String> getPictureArrayImages() {
@@ -424,28 +450,28 @@ public class GeologyDisaster {
         this.pictureArrayAudios = pictureArrayAudios;
     }
 
-    public List<FileEntity> getPictureArrayImageList() {
-        return pictureArrayImageList;
+    public List<FileEntity> getPictureArrayImagesData() {
+        return pictureArrayImagesData;
     }
 
-    public void setPictureArrayImageList(List<FileEntity> pictureArrayImageList) {
-        this.pictureArrayImageList = pictureArrayImageList;
+    public void setPictureArrayImagesData(List<FileEntity> pictureArrayImagesData) {
+        this.pictureArrayImagesData = pictureArrayImagesData;
     }
 
-    public List<FileEntity> getPictureArrayVideoList() {
-        return pictureArrayVideoList;
+    public List<FileEntity> getPictureArrayVideosData() {
+        return pictureArrayVideosData;
     }
 
-    public void setPictureArrayVideoList(List<FileEntity> pictureArrayVideoList) {
-        this.pictureArrayVideoList = pictureArrayVideoList;
+    public void setPictureArrayVideosData(List<FileEntity> pictureArrayVideosData) {
+        this.pictureArrayVideosData = pictureArrayVideosData;
     }
 
-    public List<FileEntity> getPictureArrayAudioList() {
-        return pictureArrayAudioList;
+    public List<FileEntity> getPictureArrayAudiosData() {
+        return pictureArrayAudiosData;
     }
 
-    public void setPictureArrayAudioList(List<FileEntity> pictureArrayAudioList) {
-        this.pictureArrayAudioList = pictureArrayAudioList;
+    public void setPictureArrayAudiosData(List<FileEntity> pictureArrayAudiosData) {
+        this.pictureArrayAudiosData = pictureArrayAudiosData;
     }
 
     public List<String> getFileArrayImages() {
@@ -472,28 +498,28 @@ public class GeologyDisaster {
         this.fileArrayAudios = fileArrayAudios;
     }
 
-    public List<FileEntity> getFileArrayImageList() {
-        return fileArrayImageList;
+    public List<FileEntity> getFileArrayImagesData() {
+        return fileArrayImagesData;
     }
 
-    public void setFileArrayImageList(List<FileEntity> fileArrayImageList) {
-        this.fileArrayImageList = fileArrayImageList;
+    public void setFileArrayImagesData(List<FileEntity> fileArrayImagesData) {
+        this.fileArrayImagesData = fileArrayImagesData;
     }
 
-    public List<FileEntity> getFileArrayVideoList() {
-        return fileArrayVideoList;
+    public List<FileEntity> getFileArrayVideosData() {
+        return fileArrayVideosData;
     }
 
-    public void setFileArrayVideoList(List<FileEntity> fileArrayVideoList) {
-        this.fileArrayVideoList = fileArrayVideoList;
+    public void setFileArrayVideosData(List<FileEntity> fileArrayVideosData) {
+        this.fileArrayVideosData = fileArrayVideosData;
     }
 
-    public List<FileEntity> getFileArrayAudioList() {
-        return fileArrayAudioList;
+    public List<FileEntity> getFileArrayAudiosData() {
+        return fileArrayAudiosData;
     }
 
-    public void setFileArrayAudioList(List<FileEntity> fileArrayAudioList) {
-        this.fileArrayAudioList = fileArrayAudioList;
+    public void setFileArrayAudiosData(List<FileEntity> fileArrayAudiosData) {
+        this.fileArrayAudiosData = fileArrayAudiosData;
     }
 
     public List<String> getSdopasImages() {
@@ -520,27 +546,84 @@ public class GeologyDisaster {
         this.sdopasAudios = sdopasAudios;
     }
 
-    public List<FileEntity> getSdopasImageList() {
-        return sdopasImageList;
+    public List<FileEntity> getSdopasImagesData() {
+        return sdopasImagesData;
     }
 
-    public void setSdopasImageList(List<FileEntity> sdopasImageList) {
-        this.sdopasImageList = sdopasImageList;
+    public void setSdopasImagesData(List<FileEntity> sdopasImagesData) {
+        this.sdopasImagesData = sdopasImagesData;
     }
 
-    public List<FileEntity> getSdopasVideoList() {
-        return sdopasVideoList;
+    public List<FileEntity> getSdopasVideosData() {
+        return sdopasVideosData;
     }
 
-    public void setSdopasVideoList(List<FileEntity> sdopasVideoList) {
-        this.sdopasVideoList = sdopasVideoList;
+    public void setSdopasVideosData(List<FileEntity> sdopasVideosData) {
+        this.sdopasVideosData = sdopasVideosData;
     }
 
-    public List<FileEntity> getSdopasAudioList() {
-        return sdopasAudioList;
+    public List<FileEntity> getSdopasAudiosData() {
+        return sdopasAudiosData;
     }
 
-    public void setSdopasAudioList(List<FileEntity> sdopasAudioList) {
-        this.sdopasAudioList = sdopasAudioList;
+    public void setSdopasAudiosData(List<FileEntity> sdopasAudiosData) {
+        this.sdopasAudiosData = sdopasAudiosData;
+    }
+
+    @Override
+    public String toString() {
+        return "GeologyDisaster{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lng='" + lng + '\'' +
+                ", intensityIndex='" + intensityIndex + '\'' +
+                ", time='" + time + '\'' +
+                ", mark='" + mark + '\'' +
+                ", type='" + type + '\'' +
+                ", shape='" + shape + '\'' +
+                ", wonaghdmic='" + wonaghdmic + '\'' +
+                ", adderss='" + adderss + '\'' +
+                ", lsc='" + lsc + '\'' +
+                ", hc='" + hc + '\'' +
+                ", aodm='" + aodm + '\'' +
+                ", pooeoi='" + pooeoi + '\'' +
+                ", ceoi='" + ceoi + '\'' +
+                ", ownerId='" + ownerId + '\'' +
+                ", earthquakeId='" + earthquakeId + '\'' +
+                ", size='" + size + '\'' +
+                ", status='" + status + '\'' +
+                ", fileType='" + fileType + '\'' +
+                ", datumArrayImages=" + datumArrayImages +
+                ", datumArrayVideos=" + datumArrayVideos +
+                ", datumArrayAudios=" + datumArrayAudios +
+                ", datumArrayImagesData=" + datumArrayImagesData +
+                ", datumArrayVideosData=" + datumArrayVideosData +
+                ", datumArrayAudiosData=" + datumArrayAudiosData +
+                ", sdosgImages=" + sdosgImages +
+                ", sdosgVideos=" + sdosgVideos +
+                ", sdosgAudios=" + sdosgAudios +
+                ", sdosgImagesData=" + sdosgImagesData +
+                ", sdosgVideosData=" + sdosgVideosData +
+                ", sdosgAudiosData=" + sdosgAudiosData +
+                ", pictureArrayImages=" + pictureArrayImages +
+                ", pictureArrayVideos=" + pictureArrayVideos +
+                ", pictureArrayAudios=" + pictureArrayAudios +
+                ", pictureArrayImagesData=" + pictureArrayImagesData +
+                ", pictureArrayVideosData=" + pictureArrayVideosData +
+                ", pictureArrayAudiosData=" + pictureArrayAudiosData +
+                ", fileArrayImages=" + fileArrayImages +
+                ", fileArrayVideos=" + fileArrayVideos +
+                ", fileArrayAudios=" + fileArrayAudios +
+                ", fileArrayImagesData=" + fileArrayImagesData +
+                ", fileArrayVideosData=" + fileArrayVideosData +
+                ", fileArrayAudiosData=" + fileArrayAudiosData +
+                ", sdopasImages=" + sdopasImages +
+                ", sdopasVideos=" + sdopasVideos +
+                ", sdopasAudios=" + sdopasAudios +
+                ", sdopasImagesData=" + sdopasImagesData +
+                ", sdopasVideosData=" + sdopasVideosData +
+                ", sdopasAudiosData=" + sdopasAudiosData +
+                '}';
     }
 }

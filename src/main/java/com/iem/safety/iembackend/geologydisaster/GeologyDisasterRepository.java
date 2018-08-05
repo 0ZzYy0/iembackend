@@ -13,7 +13,7 @@ public interface GeologyDisasterRepository extends MongoRepository<GeologyDisast
 
     //List<GeologyDisaster> findByOwnerIdAndTimestampGreaterThan(String ownerId, long timestamp);
 
-   //List<GeologyDisaster> findByOwnerIdAndEarthquakeId(String ownerId, String earthquakeId);
+    List<GeologyDisaster> findByOwnerIdAndEarthquakeId(String ownerId, String earthquakeId);
 
     //List<GeologyDisaster> findGeologyDisasterByEarthquakeIdAndOwnerIdAndStatus(String earthquakeId, String customerId, String status);
 
