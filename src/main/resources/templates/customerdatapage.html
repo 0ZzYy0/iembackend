@@ -50,12 +50,12 @@
                 <a class="list-group-item list-group-item-action" role="tab">侧边导航</a>
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
                    href="#list-home" role="tab" aria-controls="home">导出数据</a>
-                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                <!--<a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
                    href="#list-profile" role="tab" aria-controls="profile">计算结果</a>
                 <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
                    href="#list-messages" role="tab" aria-controls="messages">其他</a>
                 <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
-                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>-->
             </div>
         </div>
         <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
@@ -90,11 +90,22 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col">
+                                            地质灾害调查——调查点信息导出
+                                        </div>
+                                        <div class="col">
+                                            <a target="_blank"
+                                               v-bind:href="['/geologydisaster/customer/exportGeologyDisasterByEid?eid=']+eid+['&cid='+cid]">点击导出</a>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                <!--<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
 
 
                 </div>
@@ -103,7 +114,7 @@
                 </div>
                 <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
                     4...
-                </div>
+                </div>-->
             </div>
 
 
