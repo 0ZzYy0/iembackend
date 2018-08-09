@@ -68,10 +68,10 @@
                    href="#list-home" role="tab" aria-controls="home">基本信息</a>
                 <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
                    href="#list-profile" role="tab" aria-controls="profile">分组信息</a>
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                <!--<a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
                    href="#list-messages" role="tab" aria-controls="messages">其他信息</a>
                 <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
-                   href="#list-settings" role="tab" aria-controls="settings">设置</a>
+                   href="#list-settings" role="tab" aria-controls="settings">设置</a>-->
             </div>
         </div>
         <div class="col-12 col-md-8" style="border-left: 3px solid #129fff;">
@@ -103,12 +103,12 @@
                         <table id="customerTable" data-toolbar="#toolbar"></table>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                <!--<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                     3...
                 </div>
                 <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
                     4...
-                </div>
+                </div>-->
             </div>
         </div>
 
@@ -158,14 +158,14 @@
             pageList: [10, 20, 50], //可供选择的每页的行数（*）
             search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
             strictSearch: false,
-            showColumns: true, //是否显示所有的列
-            showRefresh: true, //是否显示刷新按钮
+            showColumns: false, //是否显示所有的列
+            showRefresh: false, //是否显示刷新按钮
             minimumCountColumns: 2, //最少允许的列数
             clickToSelect: true, //是否启用点击选中行
             // height: 500, //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
             // width:800,
             uniqueId: "id", //每一行的唯一标识，一般为主键列
-            showToggle: true, //是否显示详细视图和列表视图的切换按钮
+            showToggle: false, //是否显示详细视图和列表视图的切换按钮
             cardView: false, //是否显示详细视图
             detailView: false, //是否显示父子表
             clickEdit: false,
