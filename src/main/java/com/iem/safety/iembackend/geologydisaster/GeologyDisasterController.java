@@ -42,23 +42,11 @@ public class GeologyDisasterController {
         repository.deleteGeologyDisasterById(id);
     }
 
-    @RequestMapping(value = "getbyoidandeid", method = RequestMethod.GET)
-    public List<GeologyDisaster> getByOidAndTSLg(@RequestParam("ownerId") String ownerId,
-                                                 @RequestParam("earthquakeId") String earthquakeId) throws IOException {
-        return repository.findByOwnerIdAndEarthquakeId(ownerId, earthquakeId);
-    }
-
-    @RequestMapping(value = "delbyid", method = RequestMethod.POST)
-    public void delById(@RequestParam("id") String id) {
-        repository.deleteGeologyDisasterById(id);
-    }
-
     @RequestMapping(value = "admin/exportGeologyDisasterAll", method = RequestMethod.GET)
     public void exportGeologyDisasterAll(@RequestParam("eid") String eid,
                                      HttpServletResponse res) {
         service.exportGeologyDisasterAll(eid, res);
     }
-
 
     @RequestMapping(value = "admin/exportGeologyDisasterByGroup", method = RequestMethod.GET)
     public void exportGeologyDisasterByGroup(@RequestParam("eid") String eid,
