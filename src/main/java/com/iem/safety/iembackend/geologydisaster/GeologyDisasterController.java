@@ -15,7 +15,6 @@ import java.util.List;
 @RequestMapping("geologydisaster")
 @SuppressWarnings(value = "unused")
 public class GeologyDisasterController {
-//添加备注
 
     private final GeologyDisasterRepository repository;
     private final GeologyDisasterService service;
