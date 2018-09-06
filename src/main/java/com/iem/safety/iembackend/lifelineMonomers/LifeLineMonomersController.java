@@ -23,11 +23,6 @@ public class LifeLineMonomersController {
 
     @RequestMapping(value = "saveall", method = RequestMethod.POST)
     public List<LifeLineMonomers> saveAll(@RequestBody List<LifeLineMonomers> LifeLineMonomersList) {
-
-        for(LifeLineMonomers m : LifeLineMonomersList){
-            System.out.println(m);
-        }
-
         return repository.saveAll(LifeLineMonomersList);
     }
 
